@@ -167,23 +167,15 @@ class _HomePageState extends State<HomePage> {
                                       size: 36, color: kAppTheme.accentColor),
                                   onPressed: () {}),
                               IconButton(
-                                  icon: Icon(Icons.calendar_today_rounded,
+                                  icon: Icon(Icons.near_me_outlined,
                                       size: 36,
-                                      color: kAppTheme.accentColor
-                                          .withOpacity(0.35)),
+                                      color: Color(0XFFD0E1D4)),
                                   onPressed: () {}),
                               IconButton(
-                                  icon: Icon(Icons.search,
+                                  icon: Icon(Icons.qr_code_2,
                                       size: 36,
-                                      color: kAppTheme.accentColor
-                                          .withOpacity(0.35)),
+                                      color: Color(0XFFD0E1D4)),
                                   onPressed: () {}),
-                              IconButton(
-                                  icon: Icon(Icons.person,
-                                      size: 36,
-                                      color: kAppTheme.accentColor
-                                          .withOpacity(0.35)),
-                                  onPressed: () {})
                             ],
                           ),
                         ),

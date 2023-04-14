@@ -2,25 +2,28 @@ import 'package:flutter/material.dart';
 import 'package:travelappui/constants/constants.dart';
 
 AppBar HomeAppBar = AppBar(
+  backgroundColor: kAccentColor,
   title: Center(
       child: Text(
-    "Discover",
+    "ParchApp",
     style: TextStyle(fontWeight: FontWeight.w900, letterSpacing: 2),
   )),
   leading: PopupMenuButton(
-     offset: Offset.fromDirection(2, 58),
-    onSelected: (value){
-
-    },
+    offset: Offset.fromDirection(2, 58),
+    onSelected: (value) {},
     icon: Icon(Icons.menu),
     itemBuilder: (context) {
       return kAppBarMenuOptions
           .map(
             (option) => PopupMenuItem(
+
               value: option,
               child: Container(
                 width: 120,
-                child: Text(option,style: TextStyle(color: Colors.black),),
+                child: Text(
+                  option,
+                  style: TextStyle(color: Colors.black),
+                ),
               ),
             ),
           )
@@ -36,4 +39,3 @@ AppBar HomeAppBar = AppBar(
         onPressed: () {})
   ],
 );
-
