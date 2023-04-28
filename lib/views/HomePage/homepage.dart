@@ -9,6 +9,7 @@ import 'package:travelappui/theme.dart';
 import 'package:travelappui/views/HomePage/components/featurelist.dart';
 import 'package:travelappui/views/HomePage/state/homepageScrollListner.dart';
 import 'package:travelappui/views/HomePage/state/homepageStateProvider.dart';
+import 'package:travelappui/views/Scanner/scanner.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -59,13 +60,14 @@ class _HomePageState extends State<HomePage> {
                                 width: 50,
                                 height: 50,
                                 child: CircularProgressIndicator());
-                          if (snapshot.connectionState == ConnectionState.waiting)
+                          if (snapshot.connectionState ==
+                              ConnectionState.waiting)
                             return Container(
                                 alignment: Alignment.center,
                                 width: 50,
                                 height: 50,
                                 child: CircularProgressIndicator());
-                                
+
                           return ListView.builder(
                               scrollDirection: Axis.horizontal,
                               shrinkWrap: true,
@@ -110,7 +112,8 @@ class _HomePageState extends State<HomePage> {
                                 width: 50,
                                 height: 50,
                                 child: CircularProgressIndicator());
-                          if (snapshot.connectionState == ConnectionState.waiting)
+                          if (snapshot.connectionState ==
+                              ConnectionState.waiting)
                             return Container(
                                 alignment: Alignment.center,
                                 width: 50,
@@ -168,14 +171,18 @@ class _HomePageState extends State<HomePage> {
                                   onPressed: () {}),
                               IconButton(
                                   icon: Icon(Icons.near_me_outlined,
-                                      size: 36,
-                                      color: Color(0XFFD0E1D4)),
+                                      size: 36, color: Color(0XFFD0E1D4)),
                                   onPressed: () {}),
                               IconButton(
                                   icon: Icon(Icons.qr_code_2,
-                                      size: 36,
-                                      color: Color(0XFFD0E1D4)),
-                                  onPressed: () {}),
+                                      size: 36, color: Color(0XFFD0E1D4)),
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => QrScan()),
+                                    );
+                                  }),
                             ],
                           ),
                         ),
