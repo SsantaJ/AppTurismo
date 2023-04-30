@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:travelappui/components/appbar.dart';
-import 'package:travelappui/components/featuredcard.dart';
-import 'package:travelappui/components/travelplacedart.dart';
-import 'package:travelappui/constants/colors.dart';
-import 'package:travelappui/theme.dart';
-import 'package:travelappui/views/HomePage/components/featurelist.dart';
-import 'package:travelappui/views/HomePage/state/homepageScrollListner.dart';
-import 'package:travelappui/views/HomePage/state/homepageStateProvider.dart';
-import 'package:travelappui/views/Scanner/scanner.dart';
+import 'package:ParchApp/components/appbar.dart';
+import 'package:ParchApp/components/featuredcard.dart';
+import 'package:ParchApp/components/travelplacedart.dart';
+import 'package:ParchApp/constants/colors.dart';
+import 'package:ParchApp/theme.dart';
+import 'package:ParchApp/views/HomePage/components/featurelist.dart';
+import 'package:ParchApp/views/HomePage/state/homepageScrollListner.dart';
+import 'package:ParchApp/views/HomePage/state/homepageStateProvider.dart';
+import 'package:ParchApp/views/Scanner/scanner.dart';
 
 class HomePage extends StatefulWidget {
   @override

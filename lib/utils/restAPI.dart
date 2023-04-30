@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:travelappui/models/placesModel.dart';
+import 'package:ParchApp/models/placesModel.dart';
 
 class RESTAPI {
   List<PlaceModel> dummyFeatured = [

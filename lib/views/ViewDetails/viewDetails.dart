@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:travelappui/components/rating,.dart';
+import 'package:ParchApp/components/rating,.dart';
 
 class ViewDetails extends StatefulWidget {
   @override
@@ -133,7 +133,7 @@ class _ViewDetailsState extends State<ViewDetails> {
                       overflow: TextOverflow.fade,
                       style: appTheme.textTheme.bodyText1,
                     ),
-                    SizedBox(height: size.height*0.02),
+                    SizedBox(height: size.height * 0.02),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [

@@ -1,24 +1,21 @@
-
 import 'package:flutter/material.dart';
-import 'package:travelappui/models/placesModel.dart';
-import 'package:travelappui/utils/restAPI.dart';
+import 'package:ParchApp/models/placesModel.dart';
+import 'package:ParchApp/utils/restAPI.dart';
 
-class HomePageStateProvider extends ChangeNotifier
-{
-
+class HomePageStateProvider extends ChangeNotifier {
   bool showBottomDrawer = true;
   RESTAPI api = RESTAPI();
 
-  void setShowBottomDrawer(bool value){
+  void setShowBottomDrawer(bool value) {
     this.showBottomDrawer = value;
-    print("\n Bottom Scroll State : "+this.showBottomDrawer.toString());
+    print("\n Bottom Scroll State : " + this.showBottomDrawer.toString());
     notifyListeners();
   }
 
   List<String> kTopListLink = [
     'Popular',
     'Museos',
-    'Centros Comerciales',    
+    'Centros Comerciales',
     'Lugar representativos',
     'Bibliotecas',
     'Parques',
@@ -26,21 +23,18 @@ class HomePageStateProvider extends ChangeNotifier
   ];
 
   Future<List<PlaceModel>> getFeaturedPlaces() async {
-    return await api.getFeaturedPlaces();    
+    return await api.getFeaturedPlaces();
   }
 
   Future<List<PlaceModel>> getAllPlaces() async {
-    return await api.getAllPlaces();    
+    return await api.getAllPlaces();
   }
 
   Future<void> GetTopList() async {
+    await Future.delayed(const Duration(milliseconds: 500), () {});
 
-      await Future.delayed(const Duration(milliseconds: 500), (){});
+    kTopListLink.add("India");
 
-      kTopListLink.add("India");
-
-      notifyListeners();
-      
+    notifyListeners();
   }
-
 }

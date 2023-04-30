@@ -1,17 +1,16 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:travelappui/components/rating,.dart';
-import 'package:travelappui/models/placesModel.dart';
-import 'package:travelappui/theme.dart';
+import 'package:ParchApp/components/rating,.dart';
+import 'package:ParchApp/models/placesModel.dart';
+import 'package:ParchApp/theme.dart';
 
 Widget TravelCard(PlaceModel placeModel) => Container(
-      
       child: Stack(
         children: [
           Container(
             height: double.maxFinite,
-            child: ClipRRect(          
+            child: ClipRRect(
               borderRadius: BorderRadius.circular(12),
               child: Image(
                 image: AssetImage(placeModel.imgUrl),
@@ -39,7 +38,8 @@ Widget TravelCard(PlaceModel placeModel) => Container(
               padding: EdgeInsets.only(left: 8, right: 8, top: 4),
               height: 60,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12), color: Colors.black.withAlpha(90)),
+                  borderRadius: BorderRadius.circular(12),
+                  color: Colors.black.withAlpha(90)),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -48,9 +48,7 @@ Widget TravelCard(PlaceModel placeModel) => Container(
                     style: kAppTheme.textTheme.subtitle1,
                   ),
                   Row(
-                    children: [
-                     Rating(rating: placeModel.rating)
-                    ],
+                    children: [Rating(rating: placeModel.rating)],
                   )
                 ],
               ),
