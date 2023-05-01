@@ -9,7 +9,8 @@ import 'package:ParchApp/theme.dart';
 import 'package:ParchApp/views/HomePage/components/featurelist.dart';
 import 'package:ParchApp/views/HomePage/state/homepageScrollListner.dart';
 import 'package:ParchApp/views/HomePage/state/homepageStateProvider.dart';
-import 'package:ParchApp/views/Scanner/scanner.dart';
+import 'package:qrscan/qrscan.dart' as scanner;
+import 'package:permission_handler/permission_handler.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -18,6 +19,15 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   ScrollController _mainScrollController = ScrollController();
+  String qrValue = "Codigo Qr"; //variable que almacena el contenido del QR
+  void scanQr() async {
+    if (await Permission.camera.request().isGranted) {
+      String cameraScanResult = await scanner.scan();
+      setState(() {
+        qrValue = cameraScanResult;
+      });
+    } else {}
+  }
 
   final double _bottomBarHeight = 90;
   HomepageSrollListner _model;
@@ -178,16 +188,13 @@ class _HomePageState extends State<HomePage> {
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) => MapHome()),
-                                    );}),
+                                    );
+                                  }),
                               IconButton(
                                   icon: Icon(Icons.qr_code_2,
                                       size: 36, color: Color(0XFFD0E1D4)),
                                   onPressed: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => QrScan()),
-                                    );
+                                    scanQr();
                                   }),
                             ],
                           ),

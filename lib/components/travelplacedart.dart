@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:ParchApp/components/rating,.dart';
 import 'package:ParchApp/models/placesModel.dart';
@@ -27,7 +26,7 @@ Widget TravelCard(PlaceModel placeModel) => Container(
                   icon: Icon(
                     Icons.favorite_rounded,
                     size: 20,
-                    color: kAppTheme.highlightColor,
+                    color: Colors.red,
                   ),
                   onPressed: () {})),
           Positioned(

@@ -15,6 +15,7 @@ dependencies:
     sdk: flutter
   provider: ^5.0.0
   qrscan: ^0.3.3
+  permission_handler: ^10.2.0
   flutter_native_splash: ^2.0.4
   cupertino_icons: ^1.0.2
   flutter_map: ^3.1.0
