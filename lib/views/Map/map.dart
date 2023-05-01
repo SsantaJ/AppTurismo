@@ -1,3 +1,4 @@
+import 'package:ParchApp/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
@@ -65,8 +66,50 @@ class _MapHomeState extends State<MapHome> {
                     point: myPosition,
                     builder: (context) {
                       return Container(
-                        child: Icon(Icons.circle,
-                            color: Colors.lightBlue, size: 25),
+                        height: 5,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(100),
+                            color: kPrimaryColor),
+                        child:
+                            Icon(Icons.circle, color: kAccentColor, size: 20),
+                      );
+                    },
+                  ),
+                  Marker(
+                    point: LatLng(6.190459, -75.569427),
+                    builder: (context) {
+                      return ElevatedButton(
+                        onPressed: () {
+                          showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return AlertDialog(
+                                title: Text("Dialog Title"),
+                                content: Text("Dialog content goes here"),
+                                actions: <Widget>[
+                                  TextButton(
+                                    child: Text("Close"),
+                                    onPressed: () {
+                                      Navigator.of(context).pop();
+                                    },
+                                  ),
+                                ],
+                              );
+                            },
+                          );
+                        },
+                        style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all<Color>(
+                                Colors.transparent),
+                            elevation: MaterialStateProperty.all<double>(0),
+                            padding:
+                                MaterialStateProperty.all<EdgeInsetsGeometry>(
+                                    EdgeInsets.only(right:15))),
+                        child: Icon(
+                          Icons.place,
+                          color: kAccentColor,
+                          size: 40,
+                        ),
                       );
                     },
                   )
