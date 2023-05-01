@@ -17,15 +17,18 @@ class _ViewDetailsState extends State<ViewDetails> {
     Size size = MediaQuery.of(context).size;
     ThemeData appTheme = Theme.of(context);
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        elevation: 5,
-        child: Icon(Icons.arrow_back),
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => HomePage()),
-          );
-        },
+      floatingActionButton: Container(
+        margin: EdgeInsets.only(top: 16),
+        child: FloatingActionButton(
+          elevation: 5,
+          child: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => HomePage()),
+            );
+          },
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
       body: Stack(
@@ -70,11 +73,16 @@ class _ViewDetailsState extends State<ViewDetails> {
                       )
                     ]),
                     SizedBox(height: 12),
-                    Text(
-                      "Enjoy your winter vacation with warmth and amazing sightseeing on the mountains. Enjoy the best experience with us!",
-                      maxLines: 4,
-                      overflow: TextOverflow.fade,
-                      style: appTheme.textTheme.bodyText1,
+                    Container(
+                      height: 200,
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.vertical,
+                        child: Text(
+                          "La Universidad de Antioquia es una de las instituciones educativas más importantes de la región. Fundada en 1803, cuenta con una amplia oferta académica en áreas como las ciencias sociales, las humanidades, la salud y la tecnología. El campus de la universidad es amplio y moderno, con edificios de arquitectura contemporánea y zonas verdes para la recreación. La universidad es un lugar ideal para quienes deseen estudiar en una institución de prestigio y disfrutar de un ambiente académico enriquecedor. ",
+                          overflow: TextOverflow.fade,
+                          style: appTheme.textTheme.bodyText1,
+                        ),
+                      ),
                     ),
                     SizedBox(height: size.height * 0.02),
                     Row(
