@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:ParchApp/components/rating,.dart';
 import 'package:ParchApp/views/HomePage/homepage.dart';

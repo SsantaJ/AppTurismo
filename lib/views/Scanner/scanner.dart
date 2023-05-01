@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 //import 'package:barcode_scan/barcode_scan.dart';
 import 'package:flutter/services.dart';
 import 'package:qrscan/qrscan.dart' as scanner;
+import 'package:permission_handler/permission_handler.dart';
 
 class QrScan extends StatefulWidget {
   @override
@@ -15,10 +16,16 @@ class QrScanState extends State<QrScan> {
   String qrValue = "Codigo Qr";
 
   void scanQr() async {
-    String cameraScanResult = await scanner.scan();
-    setState(() {
-      qrValue = cameraScanResult;
-    });
+    if (await Permission.camera.request().isGranted) {
+      // Escanear el código QR
+      String cameraScanResult = await scanner.scan();
+      setState(() {
+        qrValue = cameraScanResult;
+      });
+    } else {
+      await Permission.camera.request();
+      scanQr();
+    }
   }
 
   @override
@@ -55,7 +62,9 @@ class QrScanState extends State<QrScan> {
                     primary: Colors.black,
                     splashFactory: InkRipple.splashFactory,
                   ),
-                  onPressed: scanQr,
+                  onPressed: () {
+                    scanQr();
+                  },
                   child: const Text('Scanear el código QR.'),
                 ),
               ),
@@ -71,25 +80,4 @@ class QrScanState extends State<QrScan> {
           ),
         ));
   }
-
-  /*Future scan() async {
-    try {
-      String barcode = await BarcodeScanner.scan();
-      setState(() => this._barcode = barcode);
-    } on PlatformException catch (e) {
-      if (e.code == BarcodeScanner.CameraAccessDenied) {
-        setState(() {
-          this._barcode = 'El usuario no dio permiso para el uso de la cámara!';
-        });
-      } else {
-        setState(() => this._barcode = 'Error desconocido $e');
-      }
-    } on FormatException {
-      setState(() => this._barcode =
-          'nulo, el usuario presionó el botón de volver antes de escanear algo)');
-    } catch (e) {
-      setState(() => this._barcode = 'Error desconocido : $e');
-    }
-  }
-  */
 }

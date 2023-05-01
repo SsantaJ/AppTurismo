@@ -104,7 +104,7 @@ class _MapHomeState extends State<MapHome> {
                             elevation: MaterialStateProperty.all<double>(0),
                             padding:
                                 MaterialStateProperty.all<EdgeInsetsGeometry>(
-                                    EdgeInsets.only(right:15))),
+                                    EdgeInsets.only(right: 15))),
                         child: Icon(
                           Icons.place,
                           color: kAccentColor,

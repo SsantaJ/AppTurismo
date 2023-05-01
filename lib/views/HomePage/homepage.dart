@@ -177,7 +177,8 @@ class _HomePageState extends State<HomePage> {
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) => MapHome()),
-                                    );}),
+                                    );
+                                  }),
                               IconButton(
                                   icon: Icon(Icons.qr_code_2,
                                       size: 36, color: Color(0XFFD0E1D4)),
