@@ -4,7 +4,7 @@ import 'package:ParchApp/constants/colors.dart';
 ThemeData kAppTheme = ThemeData(
     accentColor: kAccentColor,
     primaryColor: kPrimaryColor,
-    highlightColor: kHighlightColor,
+    highlightColor: kComplement,
     backgroundColor: kPrimaryColor,
     appBarTheme: AppBarTheme(backgroundColor: Colors.white, elevation: 0),
     fontFamily: 'PlayFair',

@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:ParchApp/components/rating,.dart';
+import 'package:ParchApp/views/HomePage/homepage.dart';
 
 class ViewDetails extends StatefulWidget {
   @override
@@ -11,29 +12,20 @@ class ViewDetails extends StatefulWidget {
 class _ViewDetailsState extends State<ViewDetails> {
   int numberPackage = 0;
 
-  removePackage() {
-    setState(() {
-      numberPackage--;
-      numberPackage = max(numberPackage, 0);
-    });
-  }
-
-  addPackage() {
-    setState(() {
-      numberPackage++;
-      numberPackage = min(numberPackage, 5);
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     ThemeData appTheme = Theme.of(context);
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        elevation: 0,
-        child: Icon(Icons.menu),
-        onPressed: () {},
+        elevation: 5,
+        child: Icon(Icons.arrow_back),
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => HomePage()),
+          );
+        },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
       body: Stack(
@@ -77,55 +69,6 @@ class _ViewDetailsState extends State<ViewDetails> {
                         style: appTheme.textTheme.caption,
                       )
                     ]),
-                    SizedBox(height: 8),
-                    Rating(rating: 4.5, color: Colors.black),
-                    SizedBox(height: 18),
-                    Row(
-                      children: [
-                        IconButton(
-                            icon: Icon(
-                              Icons.remove,
-                              color: appTheme.accentColor,
-                            ),
-                            splashColor: appTheme.accentColor,
-                            onPressed: () {
-                              removePackage();
-                            }),
-                        Container(
-                          padding: EdgeInsets.only(left: 8, right: 8),
-                          child: Text(
-                            numberPackage.toString(),
-                            style: appTheme.textTheme.caption,
-                          ),
-                        ),
-                        IconButton(
-                            icon: Icon(Icons.add),
-                            onPressed: () {
-                              addPackage();
-                            }),
-                        SizedBox(width: 12),
-                        Icon(
-                          Icons.timer_rounded,
-                          color: appTheme.accentColor,
-                        ),
-                        SizedBox(
-                          width: 8,
-                        ),
-                        Text(
-                          "5 Days",
-                          style: appTheme.textTheme.caption
-                              .merge(TextStyle(color: appTheme.accentColor)),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 8,
-                    ),
-                    Text(
-                      "Description",
-                      style: appTheme.textTheme.headline3
-                          .merge(TextStyle(color: Colors.black)),
-                    ),
                     SizedBox(height: 12),
                     Text(
                       "Enjoy your winter vacation with warmth and amazing sightseeing on the mountains. Enjoy the best experience with us!",
@@ -137,40 +80,47 @@ class _ViewDetailsState extends State<ViewDetails> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        RichText(
-                          text: TextSpan(children: [
-                            TextSpan(
-                                text: "\$400",
-                                style: TextStyle(
-                                    color: appTheme.accentColor,
-                                    fontSize: 32,
-                                    fontWeight: FontWeight.bold)),
-                            TextSpan(
-                                text: "/Package",
-                                style: TextStyle(
-                                    color: appTheme.accentColor,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold))
-                          ]),
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.perm_identity,
+                              color: appTheme.highlightColor,
+                              size: 32,
+                            ),
+                            SizedBox(width: 0),
+                            Text(
+                              "Alta Influencia",
+                              style: TextStyle(
+                                  color: appTheme.highlightColor,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold),
+                            )
+                          ],
                         ),
                         ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                                primary: appTheme.accentColor,
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(30)),
-                                elevation: 0,
-                                textStyle: TextStyle(
-                                    fontSize: 18,
-                                    fontFamily: 'PlayFair',
-                                    fontWeight: FontWeight.bold)),
-                            onPressed: () {},
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                "Book Now",
-                                style: appTheme.textTheme.headline3,
-                              ),
-                            ))
+                          style: ElevatedButton.styleFrom(
+                              primary: appTheme.accentColor,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(30)),
+                              elevation: 0,
+                              textStyle: TextStyle(
+                                  fontSize: 18,
+                                  fontFamily: 'PlayFair',
+                                  fontWeight: FontWeight.bold)),
+                          onPressed: () {},
+                          child: Padding(
+                            padding: const EdgeInsets.all(3.0),
+                            child: Row(
+                              children: [
+                                Text(
+                                  "Ubicacion",
+                                  style: appTheme.textTheme.headline3,
+                                ),
+                                Icon(Icons.location_on)
+                              ],
+                            ),
+                          ),
+                        )
                       ],
                     )
                   ],
