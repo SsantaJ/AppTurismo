@@ -74,11 +74,6 @@ class _FeaturedCardState extends State<FeaturedCard> {
                         ],
                       ),
                     ),
-                    Container(
-                      child: Row(
-                        children: [Rating(rating: widget.placeModel.rating)],
-                      ),
-                    )
                   ],
                 ),
               ),

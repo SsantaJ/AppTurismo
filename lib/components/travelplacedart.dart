@@ -47,9 +47,6 @@ Widget TravelCard(PlaceModel placeModel) => Container(
                     placeModel.placeTitle,
                     style: kAppTheme.textTheme.subtitle1,
                   ),
-                  Row(
-                    children: [Rating(rating: placeModel.rating)],
-                  )
                 ],
               ),
             ),
