@@ -1,3 +1,4 @@
+import 'package:ParchApp/views/Map/map.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:ParchApp/components/appbar.dart';
@@ -171,7 +172,12 @@ class _HomePageState extends State<HomePage> {
                               IconButton(
                                   icon: Icon(Icons.near_me_outlined,
                                       size: 36, color: Color(0XFFD0E1D4)),
-                                  onPressed: () {}),
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => MapHome()),
+                                    );}),
                               IconButton(
                                   icon: Icon(Icons.qr_code_2,
                                       size: 36, color: Color(0XFFD0E1D4)),
