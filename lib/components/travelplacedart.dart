@@ -36,7 +36,7 @@ Widget TravelCard(PlaceModel placeModel) => Container(
             right: 0,
             child: Container(
               padding: EdgeInsets.only(left: 8, right: 8, top: 4),
-              height: 60,
+              height: 35,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
                   color: Colors.black.withAlpha(90)),

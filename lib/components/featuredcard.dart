@@ -50,7 +50,7 @@ class _FeaturedCardState extends State<FeaturedCard> {
               right: 0,
               child: Container(
                 padding: EdgeInsets.only(left: 20, right: 8, top: 8),
-                height: 90,
+                height: 50,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(18),
                     color: Colors.black.withAlpha(95)),
