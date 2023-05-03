@@ -61,7 +61,8 @@ class _HomePageState extends State<HomePage> {
         width: size.width,
         child: Consumer<HomePageStateProvider>(
           builder: (context, state, s) {
-            return SingleChildScrollView(
+            return Stack(children: [
+              SingleChildScrollView(
               controller: _mainScrollController,
               child: Column(
                 children: [
@@ -199,7 +200,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                 ],
               ),
-            );
+            ),
             AnimatedBuilder(
                 animation: _model,
                 builder: (context, child) {
@@ -249,7 +250,8 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                       ));
-                });
+                })
+            ],);
           },
         ),
       ),

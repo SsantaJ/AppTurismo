@@ -8,6 +8,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
    <application
         android:label="ParchApp"
+        android:name="androidx.multidex.MultiDexApplication"
         android:icon="@mipmap/ic_launcher">
         <activity android:name="com.apptreesoftware.barcodescan.BarcodeScannerActivity"/>
         <activity

@@ -1,11 +1,18 @@
+import 'package:ParchApp/firebase_options.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:ParchApp/routes/routes.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:ParchApp/views/HomePage/state/homepageStateProvider.dart';
 import './constants/constants.dart';
 import './theme.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp(
+    options:  DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(MyApp());
 }
 
