@@ -120,6 +120,38 @@ class RESTAPI {
     )
   ];
 
+  List<PlaceModel> museos = [
+    PlaceModel(
+      placeTitle: "Museo1",
+      description: "explicacion",
+      imgUrl: "assets/image/pic1.jpg",
+      locationShort: "Honshu, Japan",
+    ),
+    PlaceModel(
+      placeTitle: "Museo2",
+      description: "texxto3r24",
+      imgUrl: "assets/image/pic2.jpg",
+      locationShort: "Ladakh, India",
+    ),
+    PlaceModel(
+      placeTitle: "Museo3",
+      description: "fmdskfmskdfs",
+      imgUrl: "assets/image/pic3.jpg",
+      locationShort: "Honshu, Japan",
+    ),
+    PlaceModel(
+      placeTitle: "Museo4",
+      description: "fsdfsdfgsdg",
+      imgUrl: "assets/image/pic4.jpg",
+      locationShort: "Honshu, Japan",
+    )
+  ];
+
+  Future<List<PlaceModel>> getmuseos() async {
+    await Future.delayed(Duration(milliseconds: 750));
+    return museos;
+  }
+
   Future<List<PlaceModel>> getFeaturedPlaces() async {
     await Future.delayed(Duration(milliseconds: 750));
     return dummyFeatured;

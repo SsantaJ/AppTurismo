@@ -22,6 +22,10 @@ class HomePageStateProvider extends ChangeNotifier {
     'Miradores'
   ];
 
+  Future<List<PlaceModel>> getmuseos() async {
+    return await api.getmuseos();
+  }
+
   Future<List<PlaceModel>> getFeaturedPlaces() async {
     return await api.getFeaturedPlaces();
   }
@@ -37,4 +41,13 @@ class HomePageStateProvider extends ChangeNotifier {
 
     notifyListeners();
   }
+
+  int _selectedTopListIndex = 0;
+
+  void setSelectedTopListIndex(int index) {
+    _selectedTopListIndex = index;
+    notifyListeners();
+  }
+
+  int getSelectedTopListIndex() => _selectedTopListIndex;
 }

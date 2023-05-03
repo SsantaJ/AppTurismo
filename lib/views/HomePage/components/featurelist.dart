@@ -25,26 +25,34 @@ class _TopFeaturedListState extends State<TopFeaturedList> {
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
-                if (index == 0)
-                  return TextButton(
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 4, right: 4),
-                      child: Text(state.kTopListLink[index],
-                          style: kAppTheme.textTheme.headline4.merge(TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: kAppTheme.accentColor))),
-                    ),
-                    onPressed: () {},
-                  );
-
+                bool isSelected = index == state.getSelectedTopListIndex();
                 return TextButton(
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 4, right: 4),
+                    child: Text(state.kTopListLink[index],
+                        style: isSelected
+                            ? kAppTheme.textTheme.headline4.merge(TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: kAppTheme.accentColor))
+                            : kAppTheme.textTheme.headline4),
+                  ),
+                  onPressed: () {
+                    state.setSelectedTopListIndex(index);
+                  },
+                );
+
+                /* return TextButton(
                   child: Padding(
                     padding: const EdgeInsets.only(left: 4, right: 4),
                     child: Text(state.kTopListLink[index],
                         style: kAppTheme.textTheme.headline4),
                   ),
-                  onPressed: () {},
-                );
+                  onPressed: () {
+                    
+                    print("-------------------AQUI LE OPRIMISTE");
+                  },
+                ) */
+                ;
               });
         },
       ),
