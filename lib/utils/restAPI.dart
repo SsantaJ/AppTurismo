@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ParchApp/models/placesModel.dart';
 
-class RESTAPI {
+class RESTAPI extends ChangeNotifier {
   List<PlaceModel> dummyFeatured = [
     PlaceModel(
       placeTitle: "Northern Moutains",
@@ -124,13 +124,13 @@ class RESTAPI {
     PlaceModel(
       placeTitle: "Museo1",
       description: "explicacion",
-      imgUrl: "assets/image/pic1.jpg",
+      imgUrl: "assets/image/pic3.jpg",
       locationShort: "Honshu, Japan",
     ),
     PlaceModel(
       placeTitle: "Museo2",
       description: "texxto3r24",
-      imgUrl: "assets/image/pic2.jpg",
+      imgUrl: "assets/image/pic1.jpg",
       locationShort: "Ladakh, India",
     ),
     PlaceModel(
@@ -146,6 +146,23 @@ class RESTAPI {
       locationShort: "Honshu, Japan",
     )
   ];
+
+  bool showBottomDrawer = true;
+
+  void setShowBottomDrawer(bool value) {
+    this.showBottomDrawer = value;
+    print("\n Bottom Scroll State : " + this.showBottomDrawer.toString());
+    notifyListeners();
+  }
+
+  int _selectedPlaceModelIndex = 0;
+
+  void setSelectedPlaceModelIndex(int index) {
+    _selectedPlaceModelIndex = index;
+    notifyListeners();
+  }
+
+  int getSelectedPlaceModelIndex() => _selectedPlaceModelIndex;
 
   Future<List<PlaceModel>> getmuseos() async {
     await Future.delayed(Duration(milliseconds: 750));

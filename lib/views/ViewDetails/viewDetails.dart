@@ -2,17 +2,40 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:ParchApp/components/rating,.dart';
 import 'package:ParchApp/views/HomePage/homepage.dart';
+import 'package:ParchApp/utils/restAPI.dart';
+import 'package:provider/provider.dart';
+import 'package:ParchApp/views/HomePage/state/homepageStateProvider.dart';
+import 'package:ParchApp/models/placesModel.dart';
 
 class ViewDetails extends StatefulWidget {
+  //PlaceModel placeModel;
+  //ViewDetails({this.placeModel});
+
   @override
   _ViewDetailsState createState() => _ViewDetailsState();
 }
 
 class _ViewDetailsState extends State<ViewDetails> {
   int numberPackage = 0;
+  RESTAPI api = RESTAPI();
+  int placeModelIndex = 0;
 
   @override
   Widget build(BuildContext context) {
+    //RESTAPI restapi = Provider.of<RESTAPI>(context);
+    //placeModelIndex = restapi.getSelectedPlaceModelIndex();
+    HomePageStateProvider homepagestate =
+        Provider.of<HomePageStateProvider>(context);
+
+    String ObtenerImg() {
+      String img;
+      if (homepagestate.getSelectedTopListIndex() == 0)
+        img = api.dummyFeatured[placeModelIndex].imgUrl;
+      if (homepagestate.getSelectedTopListIndex() == 1)
+        img = api.museos[placeModelIndex].imgUrl;
+      return img;
+    }
+
     Size size = MediaQuery.of(context).size;
     ThemeData appTheme = Theme.of(context);
     return Scaffold(
@@ -40,7 +63,7 @@ class _ViewDetailsState extends State<ViewDetails> {
               height: size.height * 0.7,
               color: Colors.grey,
               child: Image(
-                image: AssetImage('assets/image/pic1.jpg'),
+                image: AssetImage(ObtenerImg()),
                 fit: BoxFit.cover,
               ),
             ),
@@ -58,7 +81,8 @@ class _ViewDetailsState extends State<ViewDetails> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("Mount Fuji", style: appTheme.textTheme.headline2),
+                    Text(api.museos[placeModelIndex].placeTitle,
+                        style: appTheme.textTheme.headline2),
                     SizedBox(height: 4),
                     Row(children: [
                       Icon(
@@ -67,7 +91,7 @@ class _ViewDetailsState extends State<ViewDetails> {
                       ),
                       SizedBox(width: 12),
                       Text(
-                        "Honshu, Japan",
+                        api.museos[placeModelIndex].locationShort,
                         style: appTheme.textTheme.caption,
                       )
                     ]),
@@ -77,7 +101,7 @@ class _ViewDetailsState extends State<ViewDetails> {
                       child: SingleChildScrollView(
                         scrollDirection: Axis.vertical,
                         child: Text(
-                          "La Universidad de Antioquia es una de las instituciones educativas más importantes de la región. Fundada en 1803, cuenta con una amplia oferta académica en áreas como las ciencias sociales, las humanidades, la salud y la tecnología. El campus de la universidad es amplio y moderno, con edificios de arquitectura contemporánea y zonas verdes para la recreación. La universidad es un lugar ideal para quienes deseen estudiar en una institución de prestigio y disfrutar de un ambiente académico enriquecedor. ",
+                          api.museos[placeModelIndex].description,
                           overflow: TextOverflow.fade,
                           style: appTheme.textTheme.bodyText1,
                         ),
