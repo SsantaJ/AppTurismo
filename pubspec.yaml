@@ -23,6 +23,7 @@ dependencies:
   latlong2: ^0.8.1
   map_launcher: ^2.5.0+1
   firebase_core: ^2.10.0
+  cloud_firestore: ^4.6.0
 
 flutter_native_splash:
   android: true
