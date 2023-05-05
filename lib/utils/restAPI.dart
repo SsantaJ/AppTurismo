@@ -4,63 +4,63 @@ import 'package:ParchApp/models/placesModel.dart';
 class RESTAPI extends ChangeNotifier {
   List<PlaceModel> dummyFeatured = [
     PlaceModel(
-      placeTitle: "Northern Moutains",
+      placeTitle: "CC El Tesoro",
       description:
-          "Enjoy your winter vacation with warmth and amazing sightseeing on the mountains. Enjoy the best experience with us!",
-      imgUrl: "assets/image/pic1.jpg",
-      locationShort: "Honshu, Japan",
+          "El Centro Comercial El Tesoro está ubicado en el barrio de El Poblado, una de las zonas más exclusivas y turísticas de la ciudad de Medellín. Es fácilmente accesible en taxi o en transporte público. Cuenta con una amplia oferta comercial que incluye tiendas de moda, joyería, accesorios, tecnología, hogar, deportes, belleza, entre otros. También hay una gran variedad de restaurantes y cafés para todos los gustos y presupuestos. Cuenta con una zona de entretenimiento que incluye un cine, una bolera, un parque infantil y un espacio para eventos y exposiciones. Se recomienda llevar ropa y calzado cómodo para caminar, llevar protección solar si se va a estar en la terraza, y tener precaución con las pertenencias personales. ",
+      imgUrl: "assets/image/Santafe.jpg",
+      locationShort: "El Poblado, Medellín",
     ),
     PlaceModel(
-      placeTitle: "Himalayas Mt",
+      placeTitle: "CC Santafé",
       description:
           "Enjoy your winter vacation with warmth and amazing sightseeing on the mountains. Enjoy the best experience with us!",
-      imgUrl: "assets/image/pic2.jpg",
+      imgUrl: "assets/image/Eltesoro.jpg",
       locationShort: "Ladakh, India",
     ),
     PlaceModel(
-      placeTitle: "Mount Fugi",
+      placeTitle: "El Castillo",
       description:
-          "Enjoy your winter vacation with warmth and amazing sightseeing on the mountains. Enjoy the best experience with us!",
-      imgUrl: "assets/image/pic3.jpg",
-      locationShort: "Honshu, Japan",
+          "El Museo El Castillo está ubicado en el barrio de El Poblado, una de las zonas más exclusivas y turísticas de la ciudad de Medellín. Es fácilmente accesible en taxi o en transporte público. La colección del Museo El Castillo incluye obras de artistas colombianos e internacionales de los siglos XIX y XX, así como objetos decorativos y de colección de la época en que la casa era habitada por la familia Echavarría. El Museo El Castillo ofrece visitas guiadas en español e inglés, lo que permite a los visitantes conocer más acerca de la historia de la casa y de las obras de arte que se encuentran en ella. Se recomienda reservar la visita con anticipación y llegar con tiempo suficiente para recorrer la casa con calma. También se sugiere llevar ropa cómoda y calzado adecuado para caminar.",
+      imgUrl: "assets/image/Elcastillo.jpg",
+      locationShort: "Cl. 9 Sur #32-269, El Poblado, Medellín",
     ),
     PlaceModel(
-      placeTitle: "Mountains",
+      placeTitle: "Casa Pedro Nel Gómez",
       description:
-          "Enjoy your winter vacation with warmth and amazing sightseeing on the mountains. Enjoy the best experience with us!",
-      imgUrl: "assets/image/pic4.jpg",
-      locationShort: "Honshu, Japan",
-    )
+          "La Casa Museo Pedro Nel Gómez es un museo dedicado a la vida y obra del famoso pintor y muralista colombiano Pedro Nel Gómez. La casa-museo es un lugar de visita obligada para los amantes del arte y la cultura. El museo cuenta con una colección de pinturas, dibujos y murales, así como objetos personales del artista. La casa-museo es una muestra de la arquitectura típica de la época, con un patio central y una decoración colorida y alegre. Además, la casa está ubicada en un barrio tranquilo y pintoresco de Medellín, lo que la convierte en un lugar ideal para pasear y conocer la cultura local. ",
+      imgUrl: "assets/image/pedronel.jpg",
+      locationShort: " Cra 51 B #8524, Aranjuez, Medellín",
+    ),
   ];
 
   List<PlaceModel> dummyAllPlaces = [
     PlaceModel(
-      placeTitle: "Northern Moutains",
+      placeTitle: "Casa Pedro Nel Gómez",
       description:
-          "Enjoy your winter vacation with warmth and amazing sightseeing on the mountains. Enjoy the best experience with us!",
-      imgUrl: "assets/image/pic2.jpg",
-      locationShort: "Honshu, Japan",
+          "La Casa Museo Pedro Nel Gómez es un museo dedicado a la vida y obra del famoso pintor y muralista colombiano Pedro Nel Gómez. La casa-museo es un lugar de visita obligada para los amantes del arte y la cultura. El museo cuenta con una colección de pinturas, dibujos y murales, así como objetos personales del artista. La casa-museo es una muestra de la arquitectura típica de la época, con un patio central y una decoración colorida y alegre. Además, la casa está ubicada en un barrio tranquilo y pintoresco de Medellín, lo que la convierte en un lugar ideal para pasear y conocer la cultura local. ",
+      imgUrl: "assets/image/pedronel.jpg",
+      locationShort: " Cra 51 B #8524, Aranjuez, Medellín",
     ),
     PlaceModel(
-      placeTitle: "Himalayas Mt",
+      placeTitle: "El Castillo",
+      description:
+          "El Museo El Castillo está ubicado en el barrio de El Poblado, una de las zonas más exclusivas y turísticas de la ciudad de Medellín. Es fácilmente accesible en taxi o en transporte público. La colección del Museo El Castillo incluye obras de artistas colombianos e internacionales de los siglos XIX y XX, así como objetos decorativos y de colección de la época en que la casa era habitada por la familia Echavarría. El Museo El Castillo ofrece visitas guiadas en español e inglés, lo que permite a los visitantes conocer más acerca de la historia de la casa y de las obras de arte que se encuentran en ella. Se recomienda reservar la visita con anticipación y llegar con tiempo suficiente para recorrer la casa con calma. También se sugiere llevar ropa cómoda y calzado adecuado para caminar.",
+      imgUrl: "assets/image/Elcastillo.jpg",
+      locationShort: "Cl. 9 Sur #32-269, El Poblado, Medellín",
+    ),
+    PlaceModel(
+      placeTitle: "CC Santafé",
       description:
           "Enjoy your winter vacation with warmth and amazing sightseeing on the mountains. Enjoy the best experience with us!",
-      imgUrl: "assets/image/pic3.jpg",
+      imgUrl: "assets/image/Eltesoro.jpg",
       locationShort: "Ladakh, India",
     ),
     PlaceModel(
-      placeTitle: "Mount Fugi",
+      placeTitle: "CC El Tesoro",
       description:
-          "Enjoy your winter vacation with warmth and amazing sightseeing on the mountains. Enjoy the best experience with us!",
-      imgUrl: "assets/image/pic1.jpg",
-      locationShort: "Honshu, Japan",
-    ),
-    PlaceModel(
-      placeTitle: "Mountains",
-      description:
-          "Enjoy your winter vacation with warmth and amazing sightseeing on the mountains. Enjoy the best experience with us!",
-      imgUrl: "assets/image/pic4.jpg",
-      locationShort: "Honshu, Japan",
+          "El Centro Comercial El Tesoro está ubicado en el barrio de El Poblado, una de las zonas más exclusivas y turísticas de la ciudad de Medellín. Es fácilmente accesible en taxi o en transporte público. Cuenta con una amplia oferta comercial que incluye tiendas de moda, joyería, accesorios, tecnología, hogar, deportes, belleza, entre otros. También hay una gran variedad de restaurantes y cafés para todos los gustos y presupuestos. Cuenta con una zona de entretenimiento que incluye un cine, una bolera, un parque infantil y un espacio para eventos y exposiciones. Se recomienda llevar ropa y calzado cómodo para caminar, llevar protección solar si se va a estar en la terraza, y tener precaución con las pertenencias personales. ",
+      imgUrl: "assets/image/Santafe.jpg",
+      locationShort: "El Poblado, Medellín",
     ),
     PlaceModel(
       placeTitle: "Northern Moutains",
@@ -122,16 +122,18 @@ class RESTAPI extends ChangeNotifier {
 
   List<PlaceModel> museos = [
     PlaceModel(
-      placeTitle: "Museo1",
-      description: "explicacion",
-      imgUrl: "assets/image/pic3.jpg",
-      locationShort: "Honshu, Japan",
+      placeTitle: "El Castillo",
+      description:
+          "El Museo El Castillo está ubicado en el barrio de El Poblado, una de las zonas más exclusivas y turísticas de la ciudad de Medellín. Es fácilmente accesible en taxi o en transporte público. La colección del Museo El Castillo incluye obras de artistas colombianos e internacionales de los siglos XIX y XX, así como objetos decorativos y de colección de la época en que la casa era habitada por la familia Echavarría. El Museo El Castillo ofrece visitas guiadas en español e inglés, lo que permite a los visitantes conocer más acerca de la historia de la casa y de las obras de arte que se encuentran en ella. Se recomienda reservar la visita con anticipación y llegar con tiempo suficiente para recorrer la casa con calma. También se sugiere llevar ropa cómoda y calzado adecuado para caminar.",
+      imgUrl: "assets/image/Elcastillo.jpg",
+      locationShort: "Cl. 9 Sur #32-269, El Poblado, Medellín",
     ),
     PlaceModel(
-      placeTitle: "Museo2",
-      description: "texxto3r24",
-      imgUrl: "assets/image/pic1.jpg",
-      locationShort: "Ladakh, India",
+      placeTitle: "Casa Pedro Nel Gómez",
+      description:
+          "La Casa Museo Pedro Nel Gómez es un museo dedicado a la vida y obra del famoso pintor y muralista colombiano Pedro Nel Gómez. La casa-museo es un lugar de visita obligada para los amantes del arte y la cultura. El museo cuenta con una colección de pinturas, dibujos y murales, así como objetos personales del artista. La casa-museo es una muestra de la arquitectura típica de la época, con un patio central y una decoración colorida y alegre. Además, la casa está ubicada en un barrio tranquilo y pintoresco de Medellín, lo que la convierte en un lugar ideal para pasear y conocer la cultura local. ",
+      imgUrl: "assets/image/pedronel.jpg",
+      locationShort: " Cra 51 B #8524, Aranjuez, Medellín",
     ),
     PlaceModel(
       placeTitle: "Museo3",
