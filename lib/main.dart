@@ -6,12 +6,13 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:ParchApp/views/HomePage/state/homepageStateProvider.dart';
 import './constants/constants.dart';
 import './theme.dart';
+import 'package:ParchApp/utils/restAPI.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await Firebase.initializeApp(
-    options:  DefaultFirebaseOptions.currentPlatform,
+    options: DefaultFirebaseOptions.currentPlatform,
   );
   runApp(MyApp());
 }
@@ -22,7 +23,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext csontext) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => HomePageStateProvider())
+        ChangeNotifierProvider(create: (_) => HomePageStateProvider()),
+        ChangeNotifierProvider(create: (_) => RESTAPI())
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

@@ -27,12 +27,15 @@ class _ViewDetailsState extends State<ViewDetails> {
     HomePageStateProvider homepagestate =
         Provider.of<HomePageStateProvider>(context);
 
+    RESTAPI restapi = Provider.of<RESTAPI>(context);
+
     String ObtenerImg() {
       String img;
       if (homepagestate.getSelectedTopListIndex() == 0)
-        img = api.dummyFeatured[placeModelIndex].imgUrl;
+        img = api.dummyFeatured[restapi.getSelectedPlaceModelIndex()].imgUrl;
       if (homepagestate.getSelectedTopListIndex() == 1)
-        img = api.museos[placeModelIndex].imgUrl;
+        img = api.museos[restapi.getSelectedPlaceModelIndex()].imgUrl;
+
       return img;
     }
 

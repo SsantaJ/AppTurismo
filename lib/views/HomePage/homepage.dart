@@ -11,6 +11,7 @@ import 'package:ParchApp/views/HomePage/state/homepageScrollListner.dart';
 import 'package:ParchApp/views/HomePage/state/homepageStateProvider.dart';
 import 'package:qrscan/qrscan.dart' as scanner;
 import 'package:permission_handler/permission_handler.dart';
+import 'package:ParchApp/utils/restAPI.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -20,6 +21,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   ScrollController _mainScrollController = ScrollController();
   String qrValue = "Codigo Qr"; //variable que almacena el contenido del QR
+  int indexseletec;
 
   String _currentView = "Popular";
   void _changeView(String viewName) {
@@ -51,6 +53,9 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     HomePageStateProvider homepagestate =
         Provider.of<HomePageStateProvider>(context);
+
+    RESTAPI restapi = Provider.of<RESTAPI>(context);
+
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
@@ -61,197 +66,223 @@ class _HomePageState extends State<HomePage> {
         width: size.width,
         child: Consumer<HomePageStateProvider>(
           builder: (context, state, s) {
-            return Stack(children: [
-              SingleChildScrollView(
-              controller: _mainScrollController,
-              child: Column(
-                children: [
-                  TopFeaturedList(),
-                  if (homepagestate.getSelectedTopListIndex() == 0)
-                    Container(
-                      width: size.width,
-                      height: size.height * 0.33,
-                      child: StreamBuilder(
-                          stream: homepagestate.getFeaturedPlaces().asStream(),
-                          builder: (context, snapshot) {
-                            if (!snapshot.hasData)
-                              return Container(
-                                  alignment: Alignment.center,
-                                  width: 50,
-                                  height: 50,
-                                  child: CircularProgressIndicator());
-                            if (snapshot.connectionState ==
-                                ConnectionState.waiting)
-                              return Container(
-                                  alignment: Alignment.center,
-                                  width: 50,
-                                  height: 50,
-                                  child: CircularProgressIndicator());
+            return Stack(
+              children: [
+                SingleChildScrollView(
+                  controller: _mainScrollController,
+                  child: Column(
+                    children: [
+                      TopFeaturedList(),
+                      if (homepagestate.getSelectedTopListIndex() == 0)
+                        Container(
+                          width: size.width,
+                          height: size.height * 0.33,
+                          child: StreamBuilder(
+                              stream:
+                                  homepagestate.getFeaturedPlaces().asStream(),
+                              builder: (context, snapshot) {
+                                if (!snapshot.hasData)
+                                  return Container(
+                                      alignment: Alignment.center,
+                                      width: 50,
+                                      height: 50,
+                                      child: CircularProgressIndicator());
+                                if (snapshot.connectionState ==
+                                    ConnectionState.waiting)
+                                  return Container(
+                                      alignment: Alignment.center,
+                                      width: 50,
+                                      height: 50,
+                                      child: CircularProgressIndicator());
 
-                            return ListView.builder(
-                                scrollDirection: Axis.horizontal,
-                                shrinkWrap: true,
-                                itemCount: snapshot.data.length,
-                                itemBuilder: (context, index) {
-                                  return GestureDetector(
-                                      onTap: () {
-                                        Navigator.pushNamed(context, "/view");
-                                      },
-                                      child: FeaturedCard(
-                                        placeModel: snapshot.data[index],
-                                      ));
-                                });
-                          }),
-                    ),
-                  if (homepagestate.getSelectedTopListIndex() == 0)
-                    Container(
-                      margin: EdgeInsets.only(left: 12, right: 12),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "   Recommended",
-                            style: kAppTheme.textTheme.headline5,
-                          ),
-                          TextButton(
-                              onPressed: () {},
-                              child: Text(
-                                "View All",
-                                style: kAppTheme.textTheme.headline6,
-                              ))
-                        ],
-                      ),
-                    ),
-                  if (homepagestate.getSelectedTopListIndex() == 0)
-                    Container(
-                      margin: EdgeInsets.all(16),
-                      child: StreamBuilder(
-                          stream: homepagestate.getAllPlaces().asStream(),
-                          builder: (context, snapshot) {
-                            if (!snapshot.hasData)
-                              return Container(
-                                  alignment: Alignment.center,
-                                  width: 50,
-                                  height: 50,
-                                  child: CircularProgressIndicator());
-                            if (snapshot.connectionState ==
-                                ConnectionState.waiting)
-                              return Container(
-                                  alignment: Alignment.center,
-                                  width: 50,
-                                  height: 50,
-                                  child: CircularProgressIndicator());
+                                return ListView.builder(
+                                    scrollDirection: Axis.horizontal,
+                                    shrinkWrap: true,
+                                    itemCount: snapshot.data.length,
+                                    itemBuilder: (context, index) {
+                                      return GestureDetector(
+                                          onTap: () {
+                                            Navigator.pushNamed(
+                                                context, "/view");
 
-                            return GridView.builder(
-                                itemCount: snapshot.data.length,
-                                shrinkWrap: true,
-                                primary: false,
-                                gridDelegate:
-                                    SliverGridDelegateWithFixedCrossAxisCount(
-                                        mainAxisSpacing: 16,
-                                        crossAxisSpacing: 16,
-                                        crossAxisCount: 2),
-                                itemBuilder: (context, index) {
-                                  return GestureDetector(
-                                      onTap: () {
-                                        Navigator.pushNamed(context, "/view");
-                                      },
-                                      child: TravelCard(snapshot.data[index]));
-                                });
-                          }),
-                    ),
-                  if (homepagestate.getSelectedTopListIndex() == 1)
-                    Container(
-                      margin: EdgeInsets.all(16),
-                      child: StreamBuilder(
-                          stream: homepagestate.getmuseos().asStream(),
-                          builder: (context, snapshot) {
-                            if (!snapshot.hasData)
-                              return Container(
-                                  alignment: Alignment.center,
-                                  width: 50,
-                                  height: 50,
-                                  child: CircularProgressIndicator());
-                            if (snapshot.connectionState ==
-                                ConnectionState.waiting)
-                              return Container(
-                                  alignment: Alignment.center,
-                                  width: 50,
-                                  height: 50,
-                                  child: CircularProgressIndicator());
+                                            restapi.setSelectedPlaceModelIndex(
+                                                index);
 
-                            return GridView.builder(
-                                itemCount: snapshot.data.length,
-                                shrinkWrap: true,
-                                primary: false,
-                                gridDelegate:
-                                    SliverGridDelegateWithFixedCrossAxisCount(
-                                        mainAxisSpacing: 16,
-                                        crossAxisSpacing: 16,
-                                        crossAxisCount: 2),
-                                itemBuilder: (context, index) {
-                                  return GestureDetector(
-                                      onTap: () {
-                                        Navigator.pushNamed(context, "/view");
-                                      },
-                                      child: TravelCard(snapshot.data[index]));
-                                });
-                          }),
-                    ),
-                ],
-              ),
-            ),
-            AnimatedBuilder(
-                animation: _model,
-                builder: (context, child) {
-                  return Positioned(
-                      bottom: _model.bottom,
-                      right: 22,
-                      left: 22,
-                      child: Container(
-                        padding: EdgeInsets.only(left: 12, right: 12),
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            boxShadow: [
-                              BoxShadow(
-                                  blurRadius: 15,
-                                  color: Colors.black.withOpacity(0.4))
-                            ],
-                            borderRadius: BorderRadius.circular(45)),
-                        height: 75,
-                        alignment: Alignment.center,
-                        child: Material(
-                          color: Colors.transparent,
+                                            /* Provider.of<RESTAPI>(context,
+                                                    listen: false)
+                                                .setSelectedPlaceModelIndex(
+                                                    index); */
+                                            /* context
+                                                .watch<RESTAPI>()
+                                                .setSelectedPlaceModelIndex(
+                                                    index); */
+                                          },
+                                          child: FeaturedCard(
+                                            placeModel: snapshot.data[index],
+                                          ));
+                                    });
+                              }),
+                        ),
+                      if (homepagestate.getSelectedTopListIndex() == 0)
+                        Container(
+                          margin: EdgeInsets.only(left: 12, right: 12),
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              IconButton(
-                                  icon: Icon(Icons.home_rounded,
-                                      size: 36, color: kAppTheme.accentColor),
-                                  onPressed: () {}),
-                              IconButton(
-                                  icon: Icon(Icons.near_me_outlined,
-                                      size: 36, color: Color(0XFFD0E1D4)),
-                                  onPressed: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => MapHome()),
-                                    );
-                                  }),
-                              IconButton(
-                                  icon: Icon(Icons.qr_code_2,
-                                      size: 36, color: Color(0XFFD0E1D4)),
-                                  onPressed: () {
-                                    scanQr();
-                                  }),
+                              Text(
+                                "   Recommended",
+                                style: kAppTheme.textTheme.headline5,
+                              ),
+                              TextButton(
+                                  onPressed: () {},
+                                  child: Text(
+                                    "View All",
+                                    style: kAppTheme.textTheme.headline6,
+                                  ))
                             ],
                           ),
                         ),
-                      ));
-                })
-            ],);
+                      if (homepagestate.getSelectedTopListIndex() == 0)
+                        Container(
+                          margin: EdgeInsets.all(16),
+                          child: StreamBuilder(
+                              stream: homepagestate.getAllPlaces().asStream(),
+                              builder: (context, snapshot) {
+                                if (!snapshot.hasData)
+                                  return Container(
+                                      alignment: Alignment.center,
+                                      width: 50,
+                                      height: 50,
+                                      child: CircularProgressIndicator());
+                                if (snapshot.connectionState ==
+                                    ConnectionState.waiting)
+                                  return Container(
+                                      alignment: Alignment.center,
+                                      width: 50,
+                                      height: 50,
+                                      child: CircularProgressIndicator());
+
+                                return GridView.builder(
+                                    itemCount: snapshot.data.length,
+                                    shrinkWrap: true,
+                                    primary: false,
+                                    gridDelegate:
+                                        SliverGridDelegateWithFixedCrossAxisCount(
+                                            mainAxisSpacing: 16,
+                                            crossAxisSpacing: 16,
+                                            crossAxisCount: 2),
+                                    itemBuilder: (context, index) {
+                                      return GestureDetector(
+                                          onTap: () {
+                                            Navigator.pushNamed(
+                                                context, "/view");
+                                            restapi.setSelectedPlaceModelIndex(
+                                                index);
+                                          },
+                                          child:
+                                              TravelCard(snapshot.data[index]));
+                                    });
+                              }),
+                        ),
+                      if (homepagestate.getSelectedTopListIndex() == 1)
+                        Container(
+                          margin: EdgeInsets.all(16),
+                          child: StreamBuilder(
+                              stream: homepagestate.getmuseos().asStream(),
+                              builder: (context, snapshot) {
+                                if (!snapshot.hasData)
+                                  return Container(
+                                      alignment: Alignment.center,
+                                      width: 50,
+                                      height: 50,
+                                      child: CircularProgressIndicator());
+                                if (snapshot.connectionState ==
+                                    ConnectionState.waiting)
+                                  return Container(
+                                      alignment: Alignment.center,
+                                      width: 50,
+                                      height: 50,
+                                      child: CircularProgressIndicator());
+
+                                return GridView.builder(
+                                    itemCount: snapshot.data.length,
+                                    shrinkWrap: true,
+                                    primary: false,
+                                    gridDelegate:
+                                        SliverGridDelegateWithFixedCrossAxisCount(
+                                            mainAxisSpacing: 16,
+                                            crossAxisSpacing: 16,
+                                            crossAxisCount: 2),
+                                    itemBuilder: (context, index) {
+                                      return GestureDetector(
+                                          onTap: () {
+                                            Navigator.pushNamed(
+                                                context, "/view");
+                                            restapi.setSelectedPlaceModelIndex(
+                                                index);
+                                          },
+                                          child:
+                                              TravelCard(snapshot.data[index]));
+                                    });
+                              }),
+                        ),
+                    ],
+                  ),
+                ),
+                AnimatedBuilder(
+                    animation: _model,
+                    builder: (context, child) {
+                      return Positioned(
+                          bottom: _model.bottom,
+                          right: 22,
+                          left: 22,
+                          child: Container(
+                            padding: EdgeInsets.only(left: 12, right: 12),
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                boxShadow: [
+                                  BoxShadow(
+                                      blurRadius: 15,
+                                      color: Colors.black.withOpacity(0.4))
+                                ],
+                                borderRadius: BorderRadius.circular(45)),
+                            height: 75,
+                            alignment: Alignment.center,
+                            child: Material(
+                              color: Colors.transparent,
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  IconButton(
+                                      icon: Icon(Icons.home_rounded,
+                                          size: 36,
+                                          color: kAppTheme.accentColor),
+                                      onPressed: () {}),
+                                  IconButton(
+                                      icon: Icon(Icons.near_me_outlined,
+                                          size: 36, color: Color(0XFFD0E1D4)),
+                                      onPressed: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) => MapHome()),
+                                        );
+                                      }),
+                                  IconButton(
+                                      icon: Icon(Icons.qr_code_2,
+                                          size: 36, color: Color(0XFFD0E1D4)),
+                                      onPressed: () {
+                                        scanQr();
+                                      }),
+                                ],
+                              ),
+                            ),
+                          ));
+                    })
+              ],
+            );
           },
         ),
       ),
