@@ -23,7 +23,7 @@ class HomePageStateProvider extends ChangeNotifier {
   ];
 
   Future<List<PlaceModel>> getmuseos() async {
-    return await api.getmuseos();
+    return await api.getMuseos();
   }
 
   Future<List<PlaceModel>> getFeaturedPlaces() async {
@@ -32,6 +32,10 @@ class HomePageStateProvider extends ChangeNotifier {
 
   Future<List<PlaceModel>> getAllPlaces() async {
     return await api.getAllPlaces();
+  }
+
+  Future<List<PlaceModel>> getmuseos2() async {
+    return await api.getmuseos2();
   }
 
   Future<void> GetTopList() async {

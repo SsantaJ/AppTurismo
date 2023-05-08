@@ -1,7 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:ParchApp/models/placesModel.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:ParchApp/db/firebase.dart';
 
 class RESTAPI extends ChangeNotifier {
+  /* RESTAPI() {
+    getMuseosFromFirestore();
+  } */
+
+  List<PlaceModel> museos = [];
+
+  Future<List<PlaceModel>> getMuseos() async {
+    await Future.delayed(Duration(milliseconds: 750));
+    await DataBase.readMuseos().forEach((QuerySnapshot snapshot) {
+      snapshot.docs.forEach((QueryDocumentSnapshot doc) {
+        museos.add(
+          PlaceModel(
+            placeTitle: doc['Nombre'],
+            description: doc['Descripcion'],
+            imgUrl: doc['Imagen'][0],
+            locationShort: doc['Ubicacion_Short'],
+          ),
+        );
+      });
+    });
+    print(
+        "-------------------------------------------------------------------------------------");
+    //print(museos);
+    return museos2;
+  }
+
   List<PlaceModel> dummyFeatured = [
     PlaceModel(
       placeTitle: "CC El Tesoro",
@@ -120,7 +148,7 @@ class RESTAPI extends ChangeNotifier {
     )
   ];
 
-  List<PlaceModel> museos = [
+  List<PlaceModel> museos2 = [
     PlaceModel(
       placeTitle: "El Castillo",
       description:
@@ -131,7 +159,7 @@ class RESTAPI extends ChangeNotifier {
     PlaceModel(
       placeTitle: "Casa Pedro Nel Gómez",
       description:
-          "La Casa Museo Pedro Nel Gómez es un museo dedicado a la vida y obra del famoso pintor y muralista colombiano Pedro Nel Gómez. La casa-museo es un lugar de visita obligada para los amantes del arte y la cultura. El museo cuenta con una colección de pinturas, dibujos y murales, así como objetos personales del artista. La casa-museo es una muestra de la arquitectura típica de la época, con un patio central y una decoración colorida y alegre. Además, la casa está ubicada en un barrio tranquilo y pintoresco de Medellín, lo que la convierte en un lugar ideal para pasear y conocer la cultura local. ",
+          "La Casa Museo Pedro Nel Gómez es un museo dedicado a la vida y obra del famoso pintor y muralista colombiano Pedro Nel Gómez. La casa-museo es un lugar de visita obligada para los amantes del arte y la cultura. El museo cuenta con una colección de pinturas, dibujos y murales, así como objetos personales del artista. La casa-museo es una muestra de la arquitectura típica de la época, con un patio central y una decoración colorida y alegre. Además, la casa está ubicada en un barrio tranquilo y pintoresco de Medellín, lo que la convierte en un lugar ideal para pasear y conocer la cultura local.",
       imgUrl: "assets/image/pedronel.jpg",
       locationShort: " Cra 51 B #8524, Aranjuez, Medellín",
     ),
@@ -166,9 +194,10 @@ class RESTAPI extends ChangeNotifier {
 
   int getSelectedPlaceModelIndex() => _selectedPlaceModelIndex;
 
-  Future<List<PlaceModel>> getmuseos() async {
+  Future<List<PlaceModel>> getmuseos2() async {
     await Future.delayed(Duration(milliseconds: 750));
-    return museos;
+    //getMuseosprueba();
+    return museos2;
   }
 
   Future<List<PlaceModel>> getFeaturedPlaces() async {
