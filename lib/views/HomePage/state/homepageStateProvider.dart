@@ -22,8 +22,8 @@ class HomePageStateProvider extends ChangeNotifier {
     'Miradores'
   ];
 
-  Future<List<PlaceModel>> getmuseos() async {
-    return await api.getMuseos();
+  Future<List<PlaceModel>> getmuseos10() async {
+    return await api.getmuseos10();
   }
 
   Future<List<PlaceModel>> getFeaturedPlaces() async {
