@@ -53,6 +53,7 @@ class _MapHomeState extends State<MapHome>
     Stream<QuerySnapshot> stream3 = DataBase.readLugarRepre();
     Stream<QuerySnapshot> stream4 = DataBase.readMiradores();
     Stream<QuerySnapshot> stream5 = DataBase.readcc();
+    Stream<QuerySnapshot> stream6 = DataBase.readParquesRec();
     return StreamZip([stream0, stream1, stream2, stream3, stream4, stream5]);
   }
 
