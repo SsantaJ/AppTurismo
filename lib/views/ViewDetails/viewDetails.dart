@@ -34,7 +34,7 @@ class _ViewDetailsState extends State<ViewDetails> {
       if (homepagestate.getSelectedTopListIndex() == 0)
         img = api.dummyFeatured[restapi.getSelectedPlaceModelIndex()].imgUrl;
       if (homepagestate.getSelectedTopListIndex() == 1)
-        img = api.museos2[restapi.getSelectedPlaceModelIndex()].imgUrl;
+        img = api.dummyFeatured[restapi.getSelectedPlaceModelIndex()].imgUrl;
 
       return img;
     }
@@ -84,7 +84,7 @@ class _ViewDetailsState extends State<ViewDetails> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(api.museos2[placeModelIndex].placeTitle,
+                    Text(api.dummyFeatured[placeModelIndex].placeTitle,
                         style: appTheme.textTheme.headline2),
                     SizedBox(height: 4),
                     Row(children: [
@@ -94,7 +94,7 @@ class _ViewDetailsState extends State<ViewDetails> {
                       ),
                       SizedBox(width: 12),
                       Text(
-                        api.museos2[placeModelIndex].locationShort,
+                        api.dummyFeatured[placeModelIndex].locationShort,
                         style: appTheme.textTheme.caption,
                       )
                     ]),
@@ -104,7 +104,7 @@ class _ViewDetailsState extends State<ViewDetails> {
                       child: SingleChildScrollView(
                         scrollDirection: Axis.vertical,
                         child: Text(
-                          api.museos2[placeModelIndex].description,
+                          api.dummyFeatured[placeModelIndex].description,
                           overflow: TextOverflow.fade,
                           style: appTheme.textTheme.bodyText1,
                         ),
@@ -123,7 +123,7 @@ class _ViewDetailsState extends State<ViewDetails> {
                             ),
                             SizedBox(width: 0),
                             Text(
-                              "Alta Influencia",
+                              "Alta Afluencia",
                               style: TextStyle(
                                   color: appTheme.highlightColor,
                                   fontSize: 16,

@@ -54,14 +54,6 @@ class HomePageStateProvider extends ChangeNotifier {
     return await api.getFeaturedPlaces();
   }
 
-  Future<List<PlaceModel>> getAllPlaces() async {
-    return await api.getAllPlaces();
-  }
-
-  Future<List<PlaceModel>> getmuseos2() async {
-    return await api.getmuseos2();
-  }
-
   Future<void> GetTopList() async {
     await Future.delayed(const Duration(milliseconds: 500), () {});
 
