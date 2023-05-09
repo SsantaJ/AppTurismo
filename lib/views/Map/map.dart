@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:async/async.dart';
 
 const MAPBOX_TOKEN =
     'pk.eyJ1IjoibWF0ZW9za2l4IiwiYSI6ImNsaDRheHd4cjF2Y3IzZXA3MXhiYzF3NzQifQ.nHH-TGlUZTKmWtL8TKMIBw';
@@ -20,7 +21,10 @@ class MapHome extends StatefulWidget {
   _MapHomeState createState() => _MapHomeState();
 }
 
-class _MapHomeState extends State<MapHome> {
+class _MapHomeState extends State<MapHome>
+    with AutomaticKeepAliveClientMixin<MapHome> {
+  @override
+  bool get wantKeepAlive => true;
   LatLng myPosition;
 
   Future<Position> determinePosition() async {
@@ -42,6 +46,16 @@ class _MapHomeState extends State<MapHome> {
     });
   }
 
+  Stream<List<QuerySnapshot>> getData() {
+    Stream<QuerySnapshot> stream0 = DataBase.readMuseos();
+    Stream<QuerySnapshot> stream1 = DataBase.readBibliotecas();
+    Stream<QuerySnapshot> stream2 = DataBase.readIglesias();
+    Stream<QuerySnapshot> stream3 = DataBase.readLugarRepre();
+    Stream<QuerySnapshot> stream4 = DataBase.readMiradores();
+    Stream<QuerySnapshot> stream5 = DataBase.readcc();
+    return StreamZip([stream0, stream1, stream2, stream3, stream4, stream5]);
+  }
+
   @override
   void initState() {
     super.initState();
@@ -52,14 +66,18 @@ class _MapHomeState extends State<MapHome> {
   Widget build(BuildContext context) {
     return myPosition == null
         ? Center(child: CircularProgressIndicator())
-        : StreamBuilder<QuerySnapshot>(
-            stream: DataBase.readMuseos(),
+        : StreamBuilder(
+            stream: getData(),
             builder: (context, snapshot) {
               if (!snapshot.hasData) {
-                return CircularProgressIndicator();
+                return Center(child: CircularProgressIndicator());
               }
-              // Loop through the docs in the snapshot and create a marker for each one
-              snapshot.data.docs.forEach((doc) {
+              List<DocumentSnapshot> documentSnapshot = [];
+              List<dynamic> querySnapshot = snapshot.data.toList();
+              querySnapshot.forEach((query) {
+                documentSnapshot.addAll(query.docs);
+              });
+              documentSnapshot.forEach((doc) {
                 var marker = Marker(
                   point: LatLng(doc['Latitud'], doc['Longitud']),
                   builder: (context) {
