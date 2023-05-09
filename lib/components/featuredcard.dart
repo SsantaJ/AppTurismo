@@ -65,12 +65,12 @@ class _FeaturedCardState extends State<FeaturedCard> {
                             widget.placeModel.placeTitle,
                             style: kAppTheme.textTheme.headline3,
                           ),
-                          IconButton(
+                          /* IconButton(
                               icon: Icon(
                                 Icons.favorite_rounded,
                                 color: kAppTheme.primaryColor,
                               ),
-                              onPressed: () {})
+                              onPressed: () {}) */
                         ],
                       ),
                     ),

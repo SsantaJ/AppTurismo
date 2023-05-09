@@ -17,7 +17,7 @@ Widget TravelCard(PlaceModel placeModel) => Container(
               ),
             ),
           ),
-          Positioned(
+          /* Positioned(
               right: 0,
               top: 0,
               child: IconButton(
@@ -28,23 +28,25 @@ Widget TravelCard(PlaceModel placeModel) => Container(
                     size: 20,
                     color: Colors.red,
                   ),
-                  onPressed: () {})),
+                  onPressed: () {})), */
           Positioned(
             bottom: 0,
             left: 0,
             right: 0,
             child: Container(
               padding: EdgeInsets.only(left: 8, right: 8, top: 4),
-              height: 35,
+              height: 45,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
                   color: Colors.black.withAlpha(90)),
               child: Column(
+                //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     placeModel.placeTitle,
                     style: kAppTheme.textTheme.subtitle1,
+                    textAlign: TextAlign.left,
                   ),
                 ],
               ),
