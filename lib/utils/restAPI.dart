@@ -5,11 +5,16 @@ import 'package:ParchApp/db/firebase.dart';
 
 class RESTAPI extends ChangeNotifier {
   RESTAPI() {
-    _getMuseos();
+    _getdatos();
   }
   List<PlaceModel> _museos = [];
+  List<PlaceModel> _centroscomerciales = [];
+  List<PlaceModel> _lugaresrep = [];
+  List<PlaceModel> _bibliotecas = [];
+  List<PlaceModel> _parques = [];
+  List<PlaceModel> _miradores = [];
 
-  List<PlaceModel> _getMuseos() {
+  List<PlaceModel> _getdatos() {
     DataBase.readMuseos().forEach((QuerySnapshot snapshot) {
       snapshot.docs.forEach((QueryDocumentSnapshot doc) {
         _museos.add(
@@ -22,7 +27,67 @@ class RESTAPI extends ChangeNotifier {
         );
       });
     });
-    return _museos;
+    DataBase.readcc().forEach((QuerySnapshot snapshot) {
+      snapshot.docs.forEach((QueryDocumentSnapshot doc) {
+        _centroscomerciales.add(
+          PlaceModel(
+            placeTitle: doc['Nombre'],
+            description: doc['Descripcion'],
+            imgUrl: doc['Imagen'][0],
+            locationShort: doc['Ubicacion_Short'],
+          ),
+        );
+      });
+    });
+    DataBase.readLugarRepre().forEach((QuerySnapshot snapshot) {
+      snapshot.docs.forEach((QueryDocumentSnapshot doc) {
+        _lugaresrep.add(
+          PlaceModel(
+            placeTitle: doc['Nombre'],
+            description: doc['Descripcion'],
+            imgUrl: doc['Imagen'][0],
+            locationShort: doc['Ubicacion_Short'],
+          ),
+        );
+      });
+    });
+    DataBase.readBibliotecas().forEach((QuerySnapshot snapshot) {
+      snapshot.docs.forEach((QueryDocumentSnapshot doc) {
+        _bibliotecas.add(
+          PlaceModel(
+            placeTitle: doc['Nombre'],
+            description: doc['Descripcion'],
+            imgUrl: doc['Imagen'][0],
+            locationShort: doc['Ubicacion_Short'],
+          ),
+        );
+      });
+    });
+    DataBase.readParquesRec().forEach((QuerySnapshot snapshot) {
+      snapshot.docs.forEach((QueryDocumentSnapshot doc) {
+        _parques.add(
+          PlaceModel(
+            placeTitle: doc['Nombre'],
+            description: doc['Descripcion'],
+            imgUrl: doc['Imagen'][0],
+            locationShort: doc['Ubicacion_Short'],
+          ),
+        );
+      });
+    });
+    DataBase.readMiradores().forEach((QuerySnapshot snapshot) {
+      snapshot.docs.forEach((QueryDocumentSnapshot doc) {
+        _miradores.add(
+          PlaceModel(
+            placeTitle: doc['Nombre'],
+            description: doc['Descripcion'],
+            imgUrl: doc['Imagen'][0],
+            locationShort: doc['Ubicacion_Short'],
+          ),
+        );
+      });
+    });
+    //return _museos;
   }
 
   List<PlaceModel> dummyFeatured = [
@@ -192,7 +257,6 @@ class RESTAPI extends ChangeNotifier {
 
   Future<List<PlaceModel>> getmuseos2() async {
     await Future.delayed(Duration(milliseconds: 750));
-    //getMuseosprueba();
     return museos2;
   }
 
@@ -206,8 +270,33 @@ class RESTAPI extends ChangeNotifier {
     return dummyAllPlaces;
   }
 
-  Future<List<PlaceModel>> getmuseos10() async {
+  Future<List<PlaceModel>> getmuseos() async {
     await Future.delayed(Duration(milliseconds: 950));
     return _museos;
+  }
+
+  Future<List<PlaceModel>> getcentroscomerciales() async {
+    await Future.delayed(Duration(milliseconds: 950));
+    return _centroscomerciales;
+  }
+
+  Future<List<PlaceModel>> getluagresrep() async {
+    await Future.delayed(Duration(milliseconds: 950));
+    return _lugaresrep;
+  }
+
+  Future<List<PlaceModel>> getbibliotecas() async {
+    await Future.delayed(Duration(milliseconds: 950));
+    return _bibliotecas;
+  }
+
+  Future<List<PlaceModel>> getparques() async {
+    await Future.delayed(Duration(milliseconds: 950));
+    return _parques;
+  }
+
+  Future<List<PlaceModel>> getmiradores() async {
+    await Future.delayed(Duration(milliseconds: 950));
+    return _miradores;
   }
 }

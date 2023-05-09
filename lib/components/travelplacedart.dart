@@ -11,8 +11,8 @@ Widget TravelCard(PlaceModel placeModel) => Container(
             height: double.maxFinite,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(12),
-              child: Image(
-                image: AssetImage(placeModel.imgUrl),
+              child: Image.network(
+                placeModel.imgUrl,
                 fit: BoxFit.cover,
               ),
             ),

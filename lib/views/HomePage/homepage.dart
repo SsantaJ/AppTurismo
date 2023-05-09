@@ -188,7 +188,219 @@ class _HomePageState extends State<HomePage> {
                         Container(
                           margin: EdgeInsets.all(16),
                           child: StreamBuilder(
-                              stream: homepagestate.getmuseos10().asStream(),
+                              stream: homepagestate.getmuseos().asStream(),
+                              builder: (context, snapshot) {
+                                if (!snapshot.hasData)
+                                  return Container(
+                                      alignment: Alignment.center,
+                                      width: 50,
+                                      height: 50,
+                                      child: CircularProgressIndicator());
+                                if (snapshot.connectionState ==
+                                    ConnectionState.waiting)
+                                  return Container(
+                                      alignment: Alignment.center,
+                                      width: 50,
+                                      height: 50,
+                                      child: CircularProgressIndicator());
+
+                                return GridView.builder(
+                                    itemCount: snapshot.data.length,
+                                    shrinkWrap: true,
+                                    primary: false,
+                                    gridDelegate:
+                                        SliverGridDelegateWithFixedCrossAxisCount(
+                                            mainAxisSpacing: 16,
+                                            crossAxisSpacing: 16,
+                                            crossAxisCount: 2),
+                                    itemBuilder: (context, index) {
+                                      return GestureDetector(
+                                          onTap: () {
+                                            Navigator.pushNamed(
+                                                context, "/view");
+                                            restapi.setSelectedPlaceModelIndex(
+                                                index);
+                                          },
+                                          child:
+                                              TravelCard(snapshot.data[index]));
+                                    });
+                              }),
+                        ),
+                      if (homepagestate.getSelectedTopListIndex() == 2)
+                        Container(
+                          margin: EdgeInsets.all(16),
+                          child: StreamBuilder(
+                              stream: homepagestate
+                                  .getcentroscomerciales()
+                                  .asStream(),
+                              builder: (context, snapshot) {
+                                if (!snapshot.hasData)
+                                  return Container(
+                                      alignment: Alignment.center,
+                                      width: 50,
+                                      height: 50,
+                                      child: CircularProgressIndicator());
+                                if (snapshot.connectionState ==
+                                    ConnectionState.waiting)
+                                  return Container(
+                                      alignment: Alignment.center,
+                                      width: 50,
+                                      height: 50,
+                                      child: CircularProgressIndicator());
+
+                                return GridView.builder(
+                                    itemCount: snapshot.data.length,
+                                    shrinkWrap: true,
+                                    primary: false,
+                                    gridDelegate:
+                                        SliverGridDelegateWithFixedCrossAxisCount(
+                                            mainAxisSpacing: 16,
+                                            crossAxisSpacing: 16,
+                                            crossAxisCount: 2),
+                                    itemBuilder: (context, index) {
+                                      return GestureDetector(
+                                          onTap: () {
+                                            Navigator.pushNamed(
+                                                context, "/view");
+                                            restapi.setSelectedPlaceModelIndex(
+                                                index);
+                                          },
+                                          child:
+                                              TravelCard(snapshot.data[index]));
+                                    });
+                              }),
+                        ),
+                      if (homepagestate.getSelectedTopListIndex() == 3)
+                        Container(
+                          margin: EdgeInsets.all(16),
+                          child: StreamBuilder(
+                              stream: homepagestate.getluagresrep().asStream(),
+                              builder: (context, snapshot) {
+                                if (!snapshot.hasData)
+                                  return Container(
+                                      alignment: Alignment.center,
+                                      width: 50,
+                                      height: 50,
+                                      child: CircularProgressIndicator());
+                                if (snapshot.connectionState ==
+                                    ConnectionState.waiting)
+                                  return Container(
+                                      alignment: Alignment.center,
+                                      width: 50,
+                                      height: 50,
+                                      child: CircularProgressIndicator());
+
+                                return GridView.builder(
+                                    itemCount: snapshot.data.length,
+                                    shrinkWrap: true,
+                                    primary: false,
+                                    gridDelegate:
+                                        SliverGridDelegateWithFixedCrossAxisCount(
+                                            mainAxisSpacing: 16,
+                                            crossAxisSpacing: 16,
+                                            crossAxisCount: 2),
+                                    itemBuilder: (context, index) {
+                                      return GestureDetector(
+                                          onTap: () {
+                                            Navigator.pushNamed(
+                                                context, "/view");
+                                            restapi.setSelectedPlaceModelIndex(
+                                                index);
+                                          },
+                                          child:
+                                              TravelCard(snapshot.data[index]));
+                                    });
+                              }),
+                        ),
+                      if (homepagestate.getSelectedTopListIndex() == 4)
+                        Container(
+                          margin: EdgeInsets.all(16),
+                          child: StreamBuilder(
+                              stream: homepagestate.getbibliotecas().asStream(),
+                              builder: (context, snapshot) {
+                                if (!snapshot.hasData)
+                                  return Container(
+                                      alignment: Alignment.center,
+                                      width: 50,
+                                      height: 50,
+                                      child: CircularProgressIndicator());
+                                if (snapshot.connectionState ==
+                                    ConnectionState.waiting)
+                                  return Container(
+                                      alignment: Alignment.center,
+                                      width: 50,
+                                      height: 50,
+                                      child: CircularProgressIndicator());
+
+                                return GridView.builder(
+                                    itemCount: snapshot.data.length,
+                                    shrinkWrap: true,
+                                    primary: false,
+                                    gridDelegate:
+                                        SliverGridDelegateWithFixedCrossAxisCount(
+                                            mainAxisSpacing: 16,
+                                            crossAxisSpacing: 16,
+                                            crossAxisCount: 2),
+                                    itemBuilder: (context, index) {
+                                      return GestureDetector(
+                                          onTap: () {
+                                            Navigator.pushNamed(
+                                                context, "/view");
+                                            restapi.setSelectedPlaceModelIndex(
+                                                index);
+                                          },
+                                          child:
+                                              TravelCard(snapshot.data[index]));
+                                    });
+                              }),
+                        ),
+                      if (homepagestate.getSelectedTopListIndex() == 5)
+                        Container(
+                          margin: EdgeInsets.all(16),
+                          child: StreamBuilder(
+                              stream: homepagestate.getparques().asStream(),
+                              builder: (context, snapshot) {
+                                if (!snapshot.hasData)
+                                  return Container(
+                                      alignment: Alignment.center,
+                                      width: 50,
+                                      height: 50,
+                                      child: CircularProgressIndicator());
+                                if (snapshot.connectionState ==
+                                    ConnectionState.waiting)
+                                  return Container(
+                                      alignment: Alignment.center,
+                                      width: 50,
+                                      height: 50,
+                                      child: CircularProgressIndicator());
+
+                                return GridView.builder(
+                                    itemCount: snapshot.data.length,
+                                    shrinkWrap: true,
+                                    primary: false,
+                                    gridDelegate:
+                                        SliverGridDelegateWithFixedCrossAxisCount(
+                                            mainAxisSpacing: 16,
+                                            crossAxisSpacing: 16,
+                                            crossAxisCount: 2),
+                                    itemBuilder: (context, index) {
+                                      return GestureDetector(
+                                          onTap: () {
+                                            Navigator.pushNamed(
+                                                context, "/view");
+                                            restapi.setSelectedPlaceModelIndex(
+                                                index);
+                                          },
+                                          child:
+                                              TravelCard(snapshot.data[index]));
+                                    });
+                              }),
+                        ),
+                      if (homepagestate.getSelectedTopListIndex() == 6)
+                        Container(
+                          margin: EdgeInsets.all(16),
+                          child: StreamBuilder(
+                              stream: homepagestate.getmiradores().asStream(),
                               builder: (context, snapshot) {
                                 if (!snapshot.hasData)
                                   return Container(
