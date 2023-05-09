@@ -146,7 +146,7 @@ class _HomePageState extends State<HomePage> {
                         Container(
                           margin: EdgeInsets.all(16),
                           child: StreamBuilder(
-                              stream: homepagestate.getAllPlaces().asStream(),
+                              stream: homepagestate.getallplaces().asStream(),
                               builder: (context, snapshot) {
                                 if (!snapshot.hasData)
                                   return Container(

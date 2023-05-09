@@ -7,12 +7,14 @@ class RESTAPI extends ChangeNotifier {
   RESTAPI() {
     _getdatos();
   }
+
   List<PlaceModel> _museos = [];
   List<PlaceModel> _centroscomerciales = [];
   List<PlaceModel> _lugaresrep = [];
   List<PlaceModel> _bibliotecas = [];
   List<PlaceModel> _parques = [];
   List<PlaceModel> _miradores = [];
+  List<PlaceModel> _allPlaces = [];
 
   List<PlaceModel> _getdatos() {
     DataBase.readMuseos().forEach((QuerySnapshot snapshot) {
@@ -298,5 +300,18 @@ class RESTAPI extends ChangeNotifier {
   Future<List<PlaceModel>> getmiradores() async {
     await Future.delayed(Duration(milliseconds: 950));
     return _miradores;
+  }
+
+  Future<List<PlaceModel>> getallplaces() async {
+    await Future.delayed(Duration(milliseconds: 950));
+    if (_allPlaces.isEmpty) {
+      _allPlaces.addAll(_museos);
+      _allPlaces.addAll(_centroscomerciales);
+      _allPlaces.addAll(_lugaresrep);
+      _allPlaces.addAll(_bibliotecas);
+      _allPlaces.addAll(_parques);
+      _allPlaces.addAll(_miradores);
+    }
+    return _allPlaces;
   }
 }
