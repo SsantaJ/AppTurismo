@@ -101,208 +101,186 @@ class _MapHomeState extends State<MapHome>
                                     ),
                                     color: Colors.white,
                                   ),
-                                  height: 175,
+                                  height: 185,
                                   width: MediaQuery.of(context).size.width - 10,
                                   child: Column(
                                     children: [
-                                      Expanded(
-                                        flex: 1,
-                                        child: Column(
-                                          children: [
-                                            SizedBox(height: 10),
-                                            Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                Padding(
-                                                  padding: EdgeInsets.only(
-                                                      left: 16.0),
-                                                  child: Text(
-                                                    doc['Nombre'],
-                                                    style: TextStyle(
-                                                        fontSize: 20,
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                    softWrap: true,
-                                                    maxLines: 1,
-                                                    overflow: TextOverflow.clip,
-                                                  ),
-                                                ),
-                                                Row(
-                                                  children: [
-                                                    Text(
-                                                      'ADVERTENCIA',
-                                                      style: TextStyle(
-                                                          fontSize: 16,
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                          color: Colors.red),
-                                                    ),
-                                                    Padding(
-                                                      padding: EdgeInsets.only(
-                                                          right: 16.0),
-                                                      child: Icon(
-                                                        Icons
-                                                            .warning_amber_rounded,
-                                                        color: Colors.red,
-                                                        size: 24.0,
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ],
-                                            ),
-                                            SizedBox(height: 10),
-                                            Padding(
-                                              padding:
-                                                  EdgeInsets.only(left: 16.0),
-                                              child: Align(
-                                                alignment: Alignment.centerLeft,
+                                      Column(
+                                        children: [
+                                          SizedBox(height: 10),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Padding(
+                                                padding:
+                                                    EdgeInsets.only(left: 14.0),
                                                 child: Text(
-                                                  doc['Horario'],
-                                                  style:
-                                                      TextStyle(fontSize: 20),
+                                                  doc['Nombre'],
+                                                  style: TextStyle(
+                                                      fontSize: 20,
+                                                      fontWeight:
+                                                          FontWeight.bold),
                                                   softWrap: true,
                                                   maxLines: 1,
                                                   overflow: TextOverflow.clip,
                                                 ),
                                               ),
-                                            ),
-
-                                            /* Spacer(
-                                              flex: 1,
-                                            ), */
-                                          ],
-                                        ),
-                                      ),
-                                      Expanded(
-                                        flex: 1,
-                                        child: Column(
-                                          children: [
-                                            SizedBox(height: 20),
-                                            Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
+                                            ],
+                                          ),
+                                          SizedBox(height: 6),
+                                          Padding(
+                                            padding:
+                                                EdgeInsets.only(left: 16.0),
+                                            child: Row(
                                               children: [
-                                                Row(children: [
-                                                  Padding(
-                                                    padding: EdgeInsets.only(
-                                                        left: 16.0),
+                                                Icon(
+                                                  Icons.place_outlined,
+                                                  color: ksecond,
+                                                  size: 24.0,
+                                                ),
+                                                Text(
+                                                  'CLASIFICACION',
+                                                  style: TextStyle(
+                                                      fontSize: 16,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      color: ksecond),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          SizedBox(height: 6),
+                                          Padding(
+                                            padding:
+                                                EdgeInsets.only(left: 16.0),
+                                            child: Row(
+                                              children: [
+                                                Icon(
+                                                  Icons.access_time,
+                                                  size: 24.0,
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsets.only(
+                                                      left: 4.0),
+                                                  child: Align(
+                                                    alignment:
+                                                        Alignment.centerLeft,
                                                     child: Text(
-                                                      doc['Afluencia'],
+                                                      doc['Horario'],
                                                       style: TextStyle(
-                                                          fontSize: 16,
-                                                          color: kComplement),
+                                                          fontSize: 20),
+                                                      softWrap: true,
+                                                      maxLines: 1,
+                                                      overflow:
+                                                          TextOverflow.fade,
                                                     ),
                                                   ),
-                                                  SizedBox(width: 5),
-                                                  Icon(Icons.groups,
-                                                      color: kComplement),
-                                                ]),
-                                                Row(
-                                                  children: [
-                                                    Padding(
-                                                      padding: EdgeInsets.only(
-                                                          right: 16.0),
-                                                      child: ElevatedButton(
-                                                        style: ElevatedButton
-                                                            .styleFrom(
-                                                          backgroundColor:
-                                                              kAccentColor,
-                                                        ),
-                                                        onPressed: () async {
-                                                          if (await ml
-                                                                  .MapLauncher
-                                                              .isMapAvailable(ml
-                                                                  .MapType
-                                                                  .google)) {
-                                                            await ml.MapLauncher
-                                                                .showMarker(
-                                                              mapType: ml
-                                                                  .MapType
-                                                                  .google,
-                                                              coords: ml.Coords(
-                                                                  doc['Latitud'],
-                                                                  doc['Longitud']),
-                                                              title:
-                                                                  doc['Nombre'],
-                                                            );
-                                                          }
-                                                        },
-                                                        child: SizedBox(
-                                                          width: MediaQuery.of(
-                                                                      context)
-                                                                  .size
-                                                                  .width *
-                                                              0.2,
-                                                          height: 16,
-                                                          child: Align(
-                                                            alignment: Alignment
-                                                                .center,
-                                                            child: Text(
-                                                              "Ir a Maps",
-                                                              style: TextStyle(
-                                                                  fontSize: 13),
-                                                            ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      Column(
+                                        children: [
+                                          SizedBox(height: 10),
+                                          if (doc['Seguridad'] == true)
+                                            Row(
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsets.only(
+                                                      left: 16.0),
+                                                  child: Text(
+                                                    'ADVERTENCIA',
+                                                    style: TextStyle(
+                                                        fontSize: 16,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        color: Colors.red),
+                                                  ),
+                                                ),
+                                                Icon(
+                                                  Icons.warning_amber_rounded,
+                                                  color: Colors.red,
+                                                  size: 24.0,
+                                                ),
+                                              ],
+                                            ),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Row(children: [
+                                                Padding(
+                                                  padding: EdgeInsets.only(
+                                                      left: 16.0),
+                                                  child: Text(
+                                                    doc['Afluencia'],
+                                                    style: TextStyle(
+                                                        fontSize: 16,
+                                                        color: kComplement),
+                                                  ),
+                                                ),
+                                                SizedBox(width: 5),
+                                                Icon(Icons.groups,
+                                                    color: kComplement),
+                                              ]),
+                                              Row(
+                                                children: [
+                                                  Padding(
+                                                    padding: EdgeInsets.only(
+                                                        right: 16.0),
+                                                    child: ElevatedButton(
+                                                      style: ElevatedButton
+                                                          .styleFrom(
+                                                        backgroundColor:
+                                                            kAccentColor,
+                                                      ),
+                                                      onPressed: () async {
+                                                        if (await ml.MapLauncher
+                                                            .isMapAvailable(ml
+                                                                .MapType
+                                                                .google)) {
+                                                          await ml.MapLauncher
+                                                              .showMarker(
+                                                            mapType: ml
+                                                                .MapType.google,
+                                                            coords: ml.Coords(
+                                                                doc['Latitud'],
+                                                                doc['Longitud']),
+                                                            title:
+                                                                doc['Nombre'],
+                                                          );
+                                                        }
+                                                      },
+                                                      child: SizedBox(
+                                                        width: MediaQuery.of(
+                                                                    context)
+                                                                .size
+                                                                .width *
+                                                            0.3,
+                                                        height: 40,
+                                                        child: Align(
+                                                          alignment:
+                                                              Alignment.center,
+                                                          child: Text(
+                                                            "Ir a Maps",
+                                                            style: TextStyle(
+                                                                fontSize: 18,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold),
                                                           ),
                                                         ),
                                                       ),
                                                     ),
-                                                  ],
-                                                ),
-                                              ],
-                                            ),
-                                            //Spacer(flex: 1),
-                                            /* Row(
-                                              children: [
-                                                Text(doc['Afluencia']),
-                                                Icon(Icons.groups),
-                                                SizedBox(width: 80),
-                                                ElevatedButton(
-                                                  style:
-                                                      ElevatedButton.styleFrom(
-                                                    backgroundColor:
-                                                        kAccentColor,
                                                   ),
-                                                  onPressed: () async {
-                                                    if (await ml.MapLauncher
-                                                        .isMapAvailable(ml
-                                                            .MapType.google)) {
-                                                      await ml.MapLauncher
-                                                          .showMarker(
-                                                        mapType:
-                                                            ml.MapType.google,
-                                                        coords: ml.Coords(
-                                                            doc['Latitud'],
-                                                            doc['Longitud']),
-                                                        title: doc['Nombre'],
-                                                      );
-                                                    }
-                                                  },
-                                                  child: SizedBox(
-                                                    width:
-                                                        MediaQuery.of(context)
-                                                                .size
-                                                                .width *
-                                                            0.2,
-                                                    height: 16,
-                                                    child: Align(
-                                                      alignment:
-                                                          Alignment.center,
-                                                      child: Text(
-                                                        "Ir a Maps",
-                                                        style: TextStyle(
-                                                            fontSize: 13),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ), */
-                                          ],
-                                        ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                        ],
                                       ),
                                     ],
                                   ),
