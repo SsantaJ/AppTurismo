@@ -119,7 +119,7 @@ class _MapHomeState extends State<MapHome>
                                     ),
                                     color: Colors.white,
                                   ),
-                                  height: 185,
+                                  height: 190,
                                   width: MediaQuery.of(context).size.width - 10,
                                   child: Column(
                                     children: [
