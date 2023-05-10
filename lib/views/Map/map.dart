@@ -115,15 +115,24 @@ class _MapHomeState extends State<MapHome>
                                               Padding(
                                                 padding:
                                                     EdgeInsets.only(left: 14.0),
-                                                child: Text(
-                                                  doc['Nombre'],
-                                                  style: TextStyle(
-                                                      fontSize: 20,
-                                                      fontWeight:
-                                                          FontWeight.bold),
-                                                  softWrap: true,
-                                                  maxLines: 1,
-                                                  overflow: TextOverflow.clip,
+                                                child: Container(
+                                                  height: 30,
+                                                  width: 320,
+                                                  child: SingleChildScrollView(
+                                                    scrollDirection:
+                                                        Axis.horizontal,
+                                                    child: Text(
+                                                      doc['Nombre'],
+                                                      style: TextStyle(
+                                                          fontSize: 20,
+                                                          fontWeight:
+                                                              FontWeight.bold),
+                                                      softWrap: false,
+                                                      maxLines: 1,
+                                                      overflow:
+                                                          TextOverflow.fade,
+                                                    ),
+                                                  ),
                                                 ),
                                               ),
                                             ],
@@ -166,14 +175,23 @@ class _MapHomeState extends State<MapHome>
                                                   child: Align(
                                                     alignment:
                                                         Alignment.centerLeft,
-                                                    child: Text(
-                                                      doc['Horario'],
-                                                      style: TextStyle(
-                                                          fontSize: 20),
-                                                      softWrap: true,
-                                                      maxLines: 1,
-                                                      overflow:
-                                                          TextOverflow.fade,
+                                                    child: Container(
+                                                      height: 27,
+                                                      width: 290,
+                                                      child:
+                                                          SingleChildScrollView(
+                                                        scrollDirection:
+                                                            Axis.horizontal,
+                                                        child: Text(
+                                                          doc['Horario'],
+                                                          style: TextStyle(
+                                                              fontSize: 20),
+                                                          softWrap: true,
+                                                          maxLines: 1,
+                                                          overflow:
+                                                              TextOverflow.fade,
+                                                        ),
+                                                      ),
                                                     ),
                                                   ),
                                                 ),
@@ -190,7 +208,7 @@ class _MapHomeState extends State<MapHome>
                                               children: [
                                                 Padding(
                                                   padding: EdgeInsets.only(
-                                                      left: 16.0),
+                                                      left: 20.0),
                                                   child: Text(
                                                     'ADVERTENCIA',
                                                     style: TextStyle(
@@ -200,6 +218,7 @@ class _MapHomeState extends State<MapHome>
                                                         color: Colors.red),
                                                   ),
                                                 ),
+                                                SizedBox(width: 3),
                                                 Icon(
                                                   Icons.warning_amber_rounded,
                                                   color: Colors.red,
@@ -214,11 +233,11 @@ class _MapHomeState extends State<MapHome>
                                               Row(children: [
                                                 Padding(
                                                   padding: EdgeInsets.only(
-                                                      left: 16.0),
+                                                      left: 20.0),
                                                   child: Text(
                                                     doc['Afluencia'],
                                                     style: TextStyle(
-                                                        fontSize: 16,
+                                                        fontSize: 18,
                                                         color: kComplement),
                                                   ),
                                                 ),
@@ -260,7 +279,7 @@ class _MapHomeState extends State<MapHome>
                                                                 .size
                                                                 .width *
                                                             0.3,
-                                                        height: 40,
+                                                        height: 38,
                                                         child: Align(
                                                           alignment:
                                                               Alignment.center,
