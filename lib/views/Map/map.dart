@@ -95,6 +95,24 @@ class _MapHomeState extends State<MapHome>
                                 color: Colors.transparent,
                                 child: Container(
                                   decoration: BoxDecoration(
+                                    /* gradient: LinearGradient(
+                                      begin: Alignment.topLeft,
+                                      end: Alignment.bottomRight,
+                                      colors: [
+                                        kAccentColor.withOpacity(0.5),
+                                        ksecond.withOpacity(0.5)
+                                      ],
+                                    ), */
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.grey.withOpacity(0.8),
+                                        spreadRadius: 2,
+                                        blurRadius: 7,
+                                        offset: Offset(0, 3),
+                                      ),
+                                    ],
+                                    border: Border.all(
+                                        color: kAccentColor, width: 2),
                                     borderRadius: BorderRadius.only(
                                       bottomLeft: Radius.circular(25),
                                       bottomRight: Radius.circular(25),
