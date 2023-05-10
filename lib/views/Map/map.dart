@@ -180,8 +180,82 @@ class _MapHomeState extends State<MapHome>
                                         flex: 1,
                                         child: Column(
                                           children: [
-                                            Spacer(flex: 1),
+                                            SizedBox(height: 20),
                                             Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Row(children: [
+                                                  Padding(
+                                                    padding: EdgeInsets.only(
+                                                        left: 16.0),
+                                                    child: Text(
+                                                      doc['Afluencia'],
+                                                      style: TextStyle(
+                                                          fontSize: 16,
+                                                          color: kComplement),
+                                                    ),
+                                                  ),
+                                                  SizedBox(width: 5),
+                                                  Icon(Icons.groups,
+                                                      color: kComplement),
+                                                ]),
+                                                Row(
+                                                  children: [
+                                                    Padding(
+                                                      padding: EdgeInsets.only(
+                                                          right: 16.0),
+                                                      child: ElevatedButton(
+                                                        style: ElevatedButton
+                                                            .styleFrom(
+                                                          backgroundColor:
+                                                              kAccentColor,
+                                                        ),
+                                                        onPressed: () async {
+                                                          if (await ml
+                                                                  .MapLauncher
+                                                              .isMapAvailable(ml
+                                                                  .MapType
+                                                                  .google)) {
+                                                            await ml.MapLauncher
+                                                                .showMarker(
+                                                              mapType: ml
+                                                                  .MapType
+                                                                  .google,
+                                                              coords: ml.Coords(
+                                                                  doc['Latitud'],
+                                                                  doc['Longitud']),
+                                                              title:
+                                                                  doc['Nombre'],
+                                                            );
+                                                          }
+                                                        },
+                                                        child: SizedBox(
+                                                          width: MediaQuery.of(
+                                                                      context)
+                                                                  .size
+                                                                  .width *
+                                                              0.2,
+                                                          height: 16,
+                                                          child: Align(
+                                                            alignment: Alignment
+                                                                .center,
+                                                            child: Text(
+                                                              "Ir a Maps",
+                                                              style: TextStyle(
+                                                                  fontSize: 13),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
+                                            //Spacer(flex: 1),
+                                            /* Row(
                                               children: [
                                                 Text(doc['Afluencia']),
                                                 Icon(Icons.groups),
@@ -226,7 +300,7 @@ class _MapHomeState extends State<MapHome>
                                                   ),
                                                 ),
                                               ],
-                                            ),
+                                            ), */
                                           ],
                                         ),
                                       ),
