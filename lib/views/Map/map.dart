@@ -101,31 +101,78 @@ class _MapHomeState extends State<MapHome>
                                     ),
                                     color: Colors.white,
                                   ),
-                                  height: 125,
+                                  height: 175,
                                   width: MediaQuery.of(context).size.width - 10,
-                                  child: Row(
+                                  child: Column(
                                     children: [
                                       Expanded(
                                         flex: 1,
                                         child: Column(
                                           children: [
-                                            Spacer(
-                                              flex: 1,
+                                            SizedBox(height: 10),
+                                            Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsets.only(
+                                                      left: 16.0),
+                                                  child: Text(
+                                                    doc['Nombre'],
+                                                    style: TextStyle(
+                                                        fontSize: 20,
+                                                        fontWeight:
+                                                            FontWeight.bold),
+                                                    softWrap: true,
+                                                    maxLines: 1,
+                                                    overflow: TextOverflow.clip,
+                                                  ),
+                                                ),
+                                                Row(
+                                                  children: [
+                                                    Text(
+                                                      'ADVERTENCIA',
+                                                      style: TextStyle(
+                                                          fontSize: 16,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          color: Colors.red),
+                                                    ),
+                                                    Padding(
+                                                      padding: EdgeInsets.only(
+                                                          right: 16.0),
+                                                      child: Icon(
+                                                        Icons
+                                                            .warning_amber_rounded,
+                                                        color: Colors.red,
+                                                        size: 24.0,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ],
                                             ),
-                                            Expanded(
-                                              child: Text(
-                                                doc['Nombre'] +
-                                                    "\n" +
-                                                    doc['Horario'],
-                                                style: TextStyle(fontSize: 10),
-                                                softWrap: true,
-                                                maxLines: 2,
-                                                overflow: TextOverflow.clip,
+                                            SizedBox(height: 10),
+                                            Padding(
+                                              padding:
+                                                  EdgeInsets.only(left: 16.0),
+                                              child: Align(
+                                                alignment: Alignment.centerLeft,
+                                                child: Text(
+                                                  doc['Horario'],
+                                                  style:
+                                                      TextStyle(fontSize: 20),
+                                                  softWrap: true,
+                                                  maxLines: 1,
+                                                  overflow: TextOverflow.clip,
+                                                ),
                                               ),
                                             ),
-                                            Spacer(
+
+                                            /* Spacer(
                                               flex: 1,
-                                            ),
+                                            ), */
                                           ],
                                         ),
                                       ),
@@ -138,41 +185,47 @@ class _MapHomeState extends State<MapHome>
                                               children: [
                                                 Text(doc['Afluencia']),
                                                 Icon(Icons.groups),
-                                              ],
-                                            ),
-                                            ElevatedButton(
-                                              style: ElevatedButton.styleFrom(
-                                                backgroundColor: kAccentColor,
-                                              ),
-                                              onPressed: () async {
-                                                if (await ml.MapLauncher
-                                                    .isMapAvailable(
-                                                        ml.MapType.google)) {
-                                                  await ml.MapLauncher
-                                                      .showMarker(
-                                                    mapType: ml.MapType.google,
-                                                    coords: ml.Coords(
-                                                        doc['Latitud'],
-                                                        doc['Longitud']),
-                                                    title: doc['Nombre'],
-                                                  );
-                                                }
-                                              },
-                                              child: SizedBox(
-                                                width: MediaQuery.of(context)
-                                                        .size
-                                                        .width *
-                                                    0.2,
-                                                height: 10,
-                                                child: Align(
-                                                  alignment: Alignment.center,
-                                                  child: Text(
-                                                    "Ir a Maps",
-                                                    style:
-                                                        TextStyle(fontSize: 8),
+                                                SizedBox(width: 80),
+                                                ElevatedButton(
+                                                  style:
+                                                      ElevatedButton.styleFrom(
+                                                    backgroundColor:
+                                                        kAccentColor,
+                                                  ),
+                                                  onPressed: () async {
+                                                    if (await ml.MapLauncher
+                                                        .isMapAvailable(ml
+                                                            .MapType.google)) {
+                                                      await ml.MapLauncher
+                                                          .showMarker(
+                                                        mapType:
+                                                            ml.MapType.google,
+                                                        coords: ml.Coords(
+                                                            doc['Latitud'],
+                                                            doc['Longitud']),
+                                                        title: doc['Nombre'],
+                                                      );
+                                                    }
+                                                  },
+                                                  child: SizedBox(
+                                                    width:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .width *
+                                                            0.2,
+                                                    height: 16,
+                                                    child: Align(
+                                                      alignment:
+                                                          Alignment.center,
+                                                      child: Text(
+                                                        "Ir a Maps",
+                                                        style: TextStyle(
+                                                            fontSize: 13),
+                                                      ),
+                                                    ),
                                                   ),
                                                 ),
-                                              ),
+                                              ],
                                             ),
                                           ],
                                         ),
