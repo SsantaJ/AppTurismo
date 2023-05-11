@@ -167,7 +167,7 @@ class _MapHomeState extends State<MapHome>
                                                   size: 24.0,
                                                 ),
                                                 Text(
-                                                  'CLASIFICACION',
+                                                  doc.reference.parent.id,
                                                   style: TextStyle(
                                                       fontSize: 16,
                                                       fontWeight:
@@ -221,7 +221,7 @@ class _MapHomeState extends State<MapHome>
                                       Column(
                                         children: [
                                           SizedBox(height: 10),
-                                          if (doc['Seguridad'] == true)
+                                          if (doc['Seguridad'] == false)
                                             Row(
                                               children: [
                                                 Padding(
