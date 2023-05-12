@@ -7,6 +7,7 @@ import 'package:ParchApp/utils/restAPI.dart';
 import 'package:provider/provider.dart';
 import 'package:ParchApp/views/HomePage/state/homepageStateProvider.dart';
 import 'package:ParchApp/models/placesModel.dart';
+import 'package:ParchApp/constants/colors.dart';
 
 class ViewDetails extends StatefulWidget {
   //PlaceModel placeModel;
@@ -23,7 +24,6 @@ class _ViewDetailsState extends State<ViewDetails> {
 
   @override
   Widget build(BuildContext context) {
-    
     Size size = MediaQuery.of(context).size;
     ThemeData appTheme = Theme.of(context);
     return Scaffold(
@@ -78,22 +78,54 @@ class _ViewDetailsState extends State<ViewDetails> {
                         size: 14,
                       ),
                       SizedBox(width: 12),
-                      Text(
-                        context.watch<ViewItemProvider>().locshort,
-                        style: appTheme.textTheme.caption,
-                      )
+                      Container(
+                        height: 17,
+                        width: 280,
+                        child: SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Text(
+                              context.watch<ViewItemProvider>().locshort,
+                              style: appTheme.textTheme.caption,
+                              softWrap: false,
+                              maxLines: 1,
+                              overflow: TextOverflow.fade,
+                            )),
+                      ),
                     ]),
                     SizedBox(height: 12),
                     Container(
                       height: 200,
                       child: SingleChildScrollView(
-                        scrollDirection: Axis.vertical,
-                        child: Text(
-                          context.watch<ViewItemProvider>().desc,
-                          overflow: TextOverflow.fade,
-                          style: appTheme.textTheme.bodyText1,
-                        ),
-                      ),
+                          scrollDirection: Axis.vertical,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                context.watch<ViewItemProvider>().desc,
+                                overflow: TextOverflow.fade,
+                                style: appTheme.textTheme.bodyText1,
+                              ),
+                              SizedBox(height: 5),
+                              Text(
+                                "HORARIO:",
+                                style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                    color: ksecond),
+                                overflow: TextOverflow.fade,
+                                textAlign: TextAlign.left,
+                              ),
+                              Text(
+                                context.watch<ViewItemProvider>().hor,
+                                style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                    color: ksecond),
+                                overflow: TextOverflow.fade,
+                                textAlign: TextAlign.left,
+                              ),
+                            ],
+                          )),
                     ),
                     SizedBox(height: size.height * 0.02),
                     Row(

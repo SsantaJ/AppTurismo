@@ -73,11 +73,14 @@ class DataBase {
         .collection(context.watch<QrProvider>().colname)
         .doc(context.watch<QrProvider>().doc)
         .get()
-        .then((value) => {context.read<ViewItemProvider>().getItem(
-            value['Imagen'][0],
-            value['Nombre'],
-            value['Ubicacion_Short'],
-            value['Descripcion'],
-            value['Afluencia'])});
+        .then((value) => {
+              context.read<ViewItemProvider>().getItem(
+                  value['Imagen'][0],
+                  value['Nombre'],
+                  value['Ubicacion_Short'],
+                  value['Descripcion'],
+                  value['Afluencia'],
+                  value['Horario'])
+            });
   }
 }

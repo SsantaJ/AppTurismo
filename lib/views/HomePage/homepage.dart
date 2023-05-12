@@ -116,7 +116,8 @@ class _HomePageState extends State<HomePage> {
                                                     snapshot
                                                         .data[index].locshort,
                                                     snapshot.data[index].desc,
-                                                    snapshot.data[index].aflu);
+                                                    snapshot.data[index].aflu,
+                                                    snapshot.data[index].hor);
                                             Navigator.pushNamed(
                                                 context, "/view");
                                           },
@@ -186,7 +187,8 @@ class _HomePageState extends State<HomePage> {
                                                     snapshot
                                                         .data[index].locshort,
                                                     snapshot.data[index].desc,
-                                                    snapshot.data[index].aflu);
+                                                    snapshot.data[index].aflu,
+                                                    snapshot.data[index].hor);
                                             Navigator.pushNamed(
                                                 context, "/view");
                                           },
@@ -235,7 +237,8 @@ class _HomePageState extends State<HomePage> {
                                                     snapshot
                                                         .data[index].locshort,
                                                     snapshot.data[index].desc,
-                                                    snapshot.data[index].aflu);
+                                                    snapshot.data[index].aflu,
+                                                    snapshot.data[index].hor);
                                             Navigator.pushNamed(
                                                 context, "/view");
                                           },
@@ -286,7 +289,8 @@ class _HomePageState extends State<HomePage> {
                                                     snapshot
                                                         .data[index].locshort,
                                                     snapshot.data[index].desc,
-                                                    snapshot.data[index].aflu);
+                                                    snapshot.data[index].aflu,
+                                                    snapshot.data[index].hor);
                                             Navigator.pushNamed(
                                                 context, "/view");
                                           },
@@ -335,7 +339,8 @@ class _HomePageState extends State<HomePage> {
                                                     snapshot
                                                         .data[index].locshort,
                                                     snapshot.data[index].desc,
-                                                    snapshot.data[index].aflu);
+                                                    snapshot.data[index].aflu,
+                                                    snapshot.data[index].hor);
                                             Navigator.pushNamed(
                                                 context, "/view");
                                           },
@@ -384,7 +389,8 @@ class _HomePageState extends State<HomePage> {
                                                     snapshot
                                                         .data[index].locshort,
                                                     snapshot.data[index].desc,
-                                                    snapshot.data[index].aflu);
+                                                    snapshot.data[index].aflu,
+                                                    snapshot.data[index].hor);
                                             Navigator.pushNamed(
                                                 context, "/view");
                                           },
@@ -433,7 +439,8 @@ class _HomePageState extends State<HomePage> {
                                                     snapshot
                                                         .data[index].locshort,
                                                     snapshot.data[index].desc,
-                                                    snapshot.data[index].aflu);
+                                                    snapshot.data[index].aflu,
+                                                    snapshot.data[index].hor);
                                             Navigator.pushNamed(
                                                 context, "/view");
                                           },
@@ -442,7 +449,6 @@ class _HomePageState extends State<HomePage> {
                                     });
                               }),
                         ),
-                      
                       if (homepagestate.getSelectedTopListIndex() == 6)
                         Container(
                           margin: EdgeInsets.all(16),
@@ -483,7 +489,8 @@ class _HomePageState extends State<HomePage> {
                                                     snapshot
                                                         .data[index].locshort,
                                                     snapshot.data[index].desc,
-                                                    snapshot.data[index].aflu);
+                                                    snapshot.data[index].aflu,
+                                                    snapshot.data[index].hor);
                                             Navigator.pushNamed(
                                                 context, "/view");
                                           },
@@ -492,7 +499,7 @@ class _HomePageState extends State<HomePage> {
                                     });
                               }),
                         ),
-                        if (homepagestate.getSelectedTopListIndex() == 7)
+                      if (homepagestate.getSelectedTopListIndex() == 7)
                         Container(
                           margin: EdgeInsets.all(16),
                           child: StreamBuilder(
@@ -532,7 +539,8 @@ class _HomePageState extends State<HomePage> {
                                                     snapshot
                                                         .data[index].locshort,
                                                     snapshot.data[index].desc,
-                                                    snapshot.data[index].aflu);
+                                                    snapshot.data[index].aflu,
+                                                    snapshot.data[index].hor);
                                             Navigator.pushNamed(
                                                 context, "/view");
                                           },

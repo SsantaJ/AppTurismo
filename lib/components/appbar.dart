@@ -3,6 +3,7 @@ import 'package:ParchApp/constants/constants.dart';
 
 AppBar HomeAppBar = AppBar(
   backgroundColor: kAccentColor,
+  automaticallyImplyLeading: false,
   title: Center(
       child: Text(
     "ParchApp",
