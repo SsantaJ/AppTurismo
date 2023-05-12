@@ -107,7 +107,7 @@ class _ViewDetailsState extends State<ViewDetails> {
                       child: SingleChildScrollView(
                           scrollDirection: Axis.vertical,
                           child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Text(
                                 context.watch<ViewItemProvider>().desc,
@@ -116,11 +116,11 @@ class _ViewDetailsState extends State<ViewDetails> {
                               ),
                               SizedBox(height: 5),
                               Text(
-                                "HORARIO:",
+                                "HORARIO",
                                 style: TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.bold,
-                                    color: ksecond),
+                                    color: kComplement),
                                 overflow: TextOverflow.fade,
                                 textAlign: TextAlign.left,
                               ),
@@ -129,13 +129,19 @@ class _ViewDetailsState extends State<ViewDetails> {
                                 style: TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.bold,
-                                    color: ksecond),
+                                    color: kComplement),
                                 overflow: TextOverflow.fade,
                                 textAlign: TextAlign.left,
+                              ),
+                              SizedBox(height: 12),
+                              Divider(
+                                color: kComplement,
+                                thickness: 0.5,
                               ),
                               if (context.watch<ViewItemProvider>().seg ==
                                   false)
                                 Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Text(
                                       'ADVERTENCIA DE SEGURIDAD',
