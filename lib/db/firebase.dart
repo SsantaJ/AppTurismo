@@ -1,5 +1,11 @@
+import 'package:ParchApp/utils/QrProvider.dart';
+import 'package:provider/provider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'dart:developer';
+
+import 'package:flutter/cupertino.dart';
+
+import '../utils/ViewItemProvider.dart';
 
 final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 final CollectionReference _museos = _firestore
@@ -58,5 +64,20 @@ class DataBase {
 
   static Stream<QuerySnapshot> readLugarRepre() {
     return _lugaresrepresentativos.snapshots();
+  }
+
+  static LeerQr({BuildContext context}) {
+    _firestore
+        .collection("Places")
+        .doc(context.watch<QrProvider>().col)
+        .collection(context.watch<QrProvider>().colname)
+        .doc(context.watch<QrProvider>().doc)
+        .get()
+        .then((value) => {context.read<ViewItemProvider>().getItem(
+            value['Imagen'][0],
+            value['Nombre'],
+            value['Ubicacion_Short'],
+            value['Descripcion'],
+            value['Afluencia'])});
   }
 }

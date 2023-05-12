@@ -1,3 +1,7 @@
+import 'dart:html';
+
+import 'package:ParchApp/db/firebase.dart';
+import 'package:ParchApp/utils/QrProvider.dart';
 import 'package:ParchApp/utils/ViewItemProvider.dart';
 import 'package:ParchApp/views/Map/map.dart';
 import 'package:flutter/material.dart';
@@ -37,6 +41,9 @@ class _HomePageState extends State<HomePage> {
       setState(() {
         qrValue = cameraScanResult;
       });
+      context.read<QrProvider>().ObtenerDoc(qrValue);
+      DataBase.LeerQr(context: context);
+      Navigator.pushNamed(context, "/view");
     } else {}
   }
 
@@ -103,7 +110,15 @@ class _HomePageState extends State<HomePage> {
                                     itemBuilder: (context, index) {
                                       return GestureDetector(
                                           onTap: () {
-                                            context.read<ViewItemProvider>().getItem(snapshot.data[index].url ,snapshot.data[index].titulo ,snapshot.data[index].locshort, snapshot.data[index].desc, snapshot.data[index].aflu);
+                                            context
+                                                .read<ViewItemProvider>()
+                                                .getItem(
+                                                    snapshot.data[index].url,
+                                                    snapshot.data[index].titulo,
+                                                    snapshot
+                                                        .data[index].locshort,
+                                                    snapshot.data[index].desc,
+                                                    snapshot.data[index].aflu);
                                             Navigator.pushNamed(
                                                 context, "/view");
                                           },
@@ -164,7 +179,15 @@ class _HomePageState extends State<HomePage> {
                                     itemBuilder: (context, index) {
                                       return GestureDetector(
                                           onTap: () {
-                                            context.read<ViewItemProvider>().getItem(snapshot.data[index].url ,snapshot.data[index].titulo ,snapshot.data[index].locshort, snapshot.data[index].desc, snapshot.data[index].aflu);
+                                            context
+                                                .read<ViewItemProvider>()
+                                                .getItem(
+                                                    snapshot.data[index].url,
+                                                    snapshot.data[index].titulo,
+                                                    snapshot
+                                                        .data[index].locshort,
+                                                    snapshot.data[index].desc,
+                                                    snapshot.data[index].aflu);
                                             Navigator.pushNamed(
                                                 context, "/view");
                                           },
@@ -205,7 +228,15 @@ class _HomePageState extends State<HomePage> {
                                     itemBuilder: (context, index) {
                                       return GestureDetector(
                                           onTap: () {
-                                            context.read<ViewItemProvider>().getItem(snapshot.data[index].url ,snapshot.data[index].titulo ,snapshot.data[index].locshort, snapshot.data[index].desc, snapshot.data[index].aflu);
+                                            context
+                                                .read<ViewItemProvider>()
+                                                .getItem(
+                                                    snapshot.data[index].url,
+                                                    snapshot.data[index].titulo,
+                                                    snapshot
+                                                        .data[index].locshort,
+                                                    snapshot.data[index].desc,
+                                                    snapshot.data[index].aflu);
                                             Navigator.pushNamed(
                                                 context, "/view");
                                           },
@@ -248,7 +279,15 @@ class _HomePageState extends State<HomePage> {
                                     itemBuilder: (context, index) {
                                       return GestureDetector(
                                           onTap: () {
-                                            context.read<ViewItemProvider>().getItem(snapshot.data[index].url ,snapshot.data[index].titulo ,snapshot.data[index].locshort, snapshot.data[index].desc, snapshot.data[index].aflu);
+                                            context
+                                                .read<ViewItemProvider>()
+                                                .getItem(
+                                                    snapshot.data[index].url,
+                                                    snapshot.data[index].titulo,
+                                                    snapshot
+                                                        .data[index].locshort,
+                                                    snapshot.data[index].desc,
+                                                    snapshot.data[index].aflu);
                                             Navigator.pushNamed(
                                                 context, "/view");
                                           },
@@ -289,7 +328,15 @@ class _HomePageState extends State<HomePage> {
                                     itemBuilder: (context, index) {
                                       return GestureDetector(
                                           onTap: () {
-                                            context.read<ViewItemProvider>().getItem(snapshot.data[index].url ,snapshot.data[index].titulo ,snapshot.data[index].locshort, snapshot.data[index].desc, snapshot.data[index].aflu);
+                                            context
+                                                .read<ViewItemProvider>()
+                                                .getItem(
+                                                    snapshot.data[index].url,
+                                                    snapshot.data[index].titulo,
+                                                    snapshot
+                                                        .data[index].locshort,
+                                                    snapshot.data[index].desc,
+                                                    snapshot.data[index].aflu);
                                             Navigator.pushNamed(
                                                 context, "/view");
                                           },
@@ -330,7 +377,15 @@ class _HomePageState extends State<HomePage> {
                                     itemBuilder: (context, index) {
                                       return GestureDetector(
                                           onTap: () {
-                                            context.read<ViewItemProvider>().getItem(snapshot.data[index].url ,snapshot.data[index].titulo ,snapshot.data[index].locshort, snapshot.data[index].desc, snapshot.data[index].aflu);
+                                            context
+                                                .read<ViewItemProvider>()
+                                                .getItem(
+                                                    snapshot.data[index].url,
+                                                    snapshot.data[index].titulo,
+                                                    snapshot
+                                                        .data[index].locshort,
+                                                    snapshot.data[index].desc,
+                                                    snapshot.data[index].aflu);
                                             Navigator.pushNamed(
                                                 context, "/view");
                                           },
@@ -371,7 +426,15 @@ class _HomePageState extends State<HomePage> {
                                     itemBuilder: (context, index) {
                                       return GestureDetector(
                                           onTap: () {
-                                            context.read<ViewItemProvider>().getItem(snapshot.data[index].url ,snapshot.data[index].titulo ,snapshot.data[index].locshort, snapshot.data[index].desc, snapshot.data[index].aflu);
+                                            context
+                                                .read<ViewItemProvider>()
+                                                .getItem(
+                                                    snapshot.data[index].url,
+                                                    snapshot.data[index].titulo,
+                                                    snapshot
+                                                        .data[index].locshort,
+                                                    snapshot.data[index].desc,
+                                                    snapshot.data[index].aflu);
                                             Navigator.pushNamed(
                                                 context, "/view");
                                           },
@@ -412,7 +475,15 @@ class _HomePageState extends State<HomePage> {
                                     itemBuilder: (context, index) {
                                       return GestureDetector(
                                           onTap: () {
-                                            context.read<ViewItemProvider>().getItem(snapshot.data[index].url ,snapshot.data[index].titulo ,snapshot.data[index].locshort, snapshot.data[index].desc, snapshot.data[index].aflu);
+                                            context
+                                                .read<ViewItemProvider>()
+                                                .getItem(
+                                                    snapshot.data[index].url,
+                                                    snapshot.data[index].titulo,
+                                                    snapshot
+                                                        .data[index].locshort,
+                                                    snapshot.data[index].desc,
+                                                    snapshot.data[index].aflu);
                                             Navigator.pushNamed(
                                                 context, "/view");
                                           },

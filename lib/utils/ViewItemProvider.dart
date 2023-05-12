@@ -1,4 +1,3 @@
-import 'package:ParchApp/models/placesModel.dart';
 import 'package:flutter/material.dart';
 
 class ViewItemProvider with ChangeNotifier{

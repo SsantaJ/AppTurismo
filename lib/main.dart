@@ -1,4 +1,5 @@
 import 'package:ParchApp/firebase_options.dart';
+import 'package:ParchApp/utils/QrProvider.dart';
 import 'package:ParchApp/utils/ViewItemProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => HomePageStateProvider()),
         ChangeNotifierProvider(create: (_) => ViewItemProvider()),
+        ChangeNotifierProvider(create: (_) => QrProvider()),
         ChangeNotifierProvider(create: (_) => RESTAPI())
       ],
       child: MaterialApp(
