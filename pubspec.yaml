@@ -24,6 +24,7 @@ dependencies:
   map_launcher: ^2.5.0+1
   firebase_core: ^2.10.0
   cloud_firestore: ^4.6.0
+  logger: ^1.3.0
 
 flutter_native_splash:
   android: true

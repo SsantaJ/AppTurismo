@@ -142,8 +142,8 @@ class RESTAPI extends ChangeNotifier {
         locationShort: "El Poblado, Medellín",
         afluencia: "Alta",
         horario: "L-S 10am-9pm, D 11am-8pm",
-        latitud: "6.19753304876593",
-        longitud: "-75.5582078476821"),
+        latitud: 6.19753304876593,
+        longitud: -75.5582078476821),
     PlaceModel(
         placeTitle: "CC Santafé",
         description:
@@ -153,8 +153,8 @@ class RESTAPI extends ChangeNotifier {
         locationShort: "El Poblado, Medellín",
         afluencia: "Media",
         horario: "L-D 08:00 am - 9:00 pm",
-        latitud: "6.196729615277477",
-        longitud: "-75.57375520350446"),
+        latitud: 6.196729615277477,
+        longitud: -75.57375520350446),
     PlaceModel(
         placeTitle: "El Castillo",
         description:
@@ -164,8 +164,8 @@ class RESTAPI extends ChangeNotifier {
         locationShort: "Cl. 9 Sur #32-269, El Poblado, Medellín",
         afluencia: "Media",
         horario: "L-v 9AM-6PM",
-        latitud: "6.190459",
-        longitud: "-75.569427"),
+        latitud: 6.190459,
+        longitud: -75.569427),
     PlaceModel(
         placeTitle: "Casa Pedro Nel Gómez",
         description:
@@ -175,8 +175,8 @@ class RESTAPI extends ChangeNotifier {
         locationShort: " Cra 51 B #8524, Aranjuez, Medellín",
         afluencia: "Baja",
         horario: "9am-5pm L-S",
-        latitud: "6.27876",
-        longitud: "-75.56245"),
+        latitud: 6.27876,
+        longitud: -75.56245),
   ];
 
   bool showBottomDrawer = true;

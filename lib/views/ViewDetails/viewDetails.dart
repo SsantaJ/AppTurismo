@@ -33,10 +33,7 @@ class _ViewDetailsState extends State<ViewDetails> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     ThemeData appTheme = Theme.of(context);
-
-    double long = double.parse(context.watch<ViewItemProvider>().lon);
-    double lati = double.parse(context.watch<ViewItemProvider>().lat);
-    String nom = context.watch<ViewItemProvider>().title;
+    
 
     return Scaffold(
       floatingActionButton: Container(
@@ -168,19 +165,12 @@ class _ViewDetailsState extends State<ViewDetails> {
                                   fontFamily: 'PlayFair',
                                   fontWeight: FontWeight.bold)),
                           onPressed: () async {
-                            print(
-                                "----------------------------------------------------------------------------------");
-                            print(lati);
-                            print(long);
-                            print(nom);
-                            print(
-                                "----------------------------------------------------------------------------------");
                             if (await ml.MapLauncher.isMapAvailable(
                                 ml.MapType.google)) {
                               await ml.MapLauncher.showMarker(
                                 mapType: ml.MapType.google,
-                                coords: ml.Coords(lati, long),
-                                title: nom,
+                                coords: ml.Coords(context.watch<ViewItemProvider>().lat, context.watch<ViewItemProvider>().lon),
+                                title: context.watch<ViewItemProvider>().title,
                               );
                             }
                           },

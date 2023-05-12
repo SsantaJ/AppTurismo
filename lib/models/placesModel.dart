@@ -5,8 +5,8 @@ class PlaceModel {
   String imgUrl;
   String afluencia;
   String horario;
-  String latitud;
-  String longitud;
+  double latitud;
+  double longitud;
 
   String get titulo => placeTitle;
   String get locshort => locationShort;
@@ -14,8 +14,8 @@ class PlaceModel {
   String get url => imgUrl;
   String get aflu => afluencia;
   String get hor => horario;
-  String get lat => latitud;
-  String get lon => longitud;
+  double get lat => latitud;
+  double get lon => longitud;
 
   PlaceModel(
       {this.placeTitle,
