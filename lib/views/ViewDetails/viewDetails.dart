@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'package:ParchApp/utils/ViewItemProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:ParchApp/components/rating,.dart';
 import 'package:ParchApp/views/HomePage/homepage.dart';
@@ -22,23 +23,7 @@ class _ViewDetailsState extends State<ViewDetails> {
 
   @override
   Widget build(BuildContext context) {
-    //RESTAPI restapi = Provider.of<RESTAPI>(context);
-    //placeModelIndex = restapi.getSelectedPlaceModelIndex();
-    HomePageStateProvider homepagestate =
-        Provider.of<HomePageStateProvider>(context);
-
-    RESTAPI restapi = Provider.of<RESTAPI>(context);
-
-    String ObtenerImg() {
-      String img;
-      if (homepagestate.getSelectedTopListIndex() == 0)
-        img = api.dummyFeatured[restapi.getSelectedPlaceModelIndex()].imgUrl;
-      if (homepagestate.getSelectedTopListIndex() == 1)
-        img = api.dummyFeatured[restapi.getSelectedPlaceModelIndex()].imgUrl;
-
-      return img;
-    }
-
+    
     Size size = MediaQuery.of(context).size;
     ThemeData appTheme = Theme.of(context);
     return Scaffold(
@@ -66,7 +51,7 @@ class _ViewDetailsState extends State<ViewDetails> {
               height: size.height * 0.7,
               color: Colors.grey,
               child: Image(
-                image: AssetImage(ObtenerImg()),
+                image: NetworkImage(context.watch<ViewItemProvider>().img),
                 fit: BoxFit.cover,
               ),
             ),
@@ -84,7 +69,7 @@ class _ViewDetailsState extends State<ViewDetails> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(api.dummyFeatured[placeModelIndex].placeTitle,
+                    Text(context.watch<ViewItemProvider>().title,
                         style: appTheme.textTheme.headline2),
                     SizedBox(height: 4),
                     Row(children: [
@@ -94,7 +79,7 @@ class _ViewDetailsState extends State<ViewDetails> {
                       ),
                       SizedBox(width: 12),
                       Text(
-                        api.dummyFeatured[placeModelIndex].locationShort,
+                        context.watch<ViewItemProvider>().locshort,
                         style: appTheme.textTheme.caption,
                       )
                     ]),
@@ -104,7 +89,7 @@ class _ViewDetailsState extends State<ViewDetails> {
                       child: SingleChildScrollView(
                         scrollDirection: Axis.vertical,
                         child: Text(
-                          api.dummyFeatured[placeModelIndex].description,
+                          context.watch<ViewItemProvider>().desc,
                           overflow: TextOverflow.fade,
                           style: appTheme.textTheme.bodyText1,
                         ),
@@ -123,7 +108,7 @@ class _ViewDetailsState extends State<ViewDetails> {
                             ),
                             SizedBox(width: 0),
                             Text(
-                              "Alta Afluencia",
+                              "${context.watch<ViewItemProvider>().afl} Afluencia",
                               style: TextStyle(
                                   color: appTheme.highlightColor,
                                   fontSize: 16,

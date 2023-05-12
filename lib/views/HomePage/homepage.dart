@@ -1,3 +1,4 @@
+import 'package:ParchApp/utils/ViewItemProvider.dart';
 import 'package:ParchApp/views/Map/map.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -102,20 +103,9 @@ class _HomePageState extends State<HomePage> {
                                     itemBuilder: (context, index) {
                                       return GestureDetector(
                                           onTap: () {
+                                            context.read<ViewItemProvider>().getItem(snapshot.data[index].url ,snapshot.data[index].titulo ,snapshot.data[index].locshort, snapshot.data[index].desc, snapshot.data[index].aflu);
                                             Navigator.pushNamed(
                                                 context, "/view");
-
-                                            restapi.setSelectedPlaceModelIndex(
-                                                index);
-
-                                            /* Provider.of<RESTAPI>(context,
-                                                    listen: false)
-                                                .setSelectedPlaceModelIndex(
-                                                    index); */
-                                            /* context
-                                                .watch<RESTAPI>()
-                                                .setSelectedPlaceModelIndex(
-                                                    index); */
                                           },
                                           child: FeaturedCard(
                                             placeModel: snapshot.data[index],
@@ -174,10 +164,9 @@ class _HomePageState extends State<HomePage> {
                                     itemBuilder: (context, index) {
                                       return GestureDetector(
                                           onTap: () {
+                                            context.read<ViewItemProvider>().getItem(snapshot.data[index].url ,snapshot.data[index].titulo ,snapshot.data[index].locshort, snapshot.data[index].desc, snapshot.data[index].aflu);
                                             Navigator.pushNamed(
                                                 context, "/view");
-                                            restapi.setSelectedPlaceModelIndex(
-                                                index);
                                           },
                                           child:
                                               TravelCard(snapshot.data[index]));
@@ -216,10 +205,9 @@ class _HomePageState extends State<HomePage> {
                                     itemBuilder: (context, index) {
                                       return GestureDetector(
                                           onTap: () {
+                                            context.read<ViewItemProvider>().getItem(snapshot.data[index].url ,snapshot.data[index].titulo ,snapshot.data[index].locshort, snapshot.data[index].desc, snapshot.data[index].aflu);
                                             Navigator.pushNamed(
                                                 context, "/view");
-                                            restapi.setSelectedPlaceModelIndex(
-                                                index);
                                           },
                                           child:
                                               TravelCard(snapshot.data[index]));
@@ -260,10 +248,9 @@ class _HomePageState extends State<HomePage> {
                                     itemBuilder: (context, index) {
                                       return GestureDetector(
                                           onTap: () {
+                                            context.read<ViewItemProvider>().getItem(snapshot.data[index].url ,snapshot.data[index].titulo ,snapshot.data[index].locshort, snapshot.data[index].desc, snapshot.data[index].aflu);
                                             Navigator.pushNamed(
                                                 context, "/view");
-                                            restapi.setSelectedPlaceModelIndex(
-                                                index);
                                           },
                                           child:
                                               TravelCard(snapshot.data[index]));
@@ -302,10 +289,9 @@ class _HomePageState extends State<HomePage> {
                                     itemBuilder: (context, index) {
                                       return GestureDetector(
                                           onTap: () {
+                                            context.read<ViewItemProvider>().getItem(snapshot.data[index].url ,snapshot.data[index].titulo ,snapshot.data[index].locshort, snapshot.data[index].desc, snapshot.data[index].aflu);
                                             Navigator.pushNamed(
                                                 context, "/view");
-                                            restapi.setSelectedPlaceModelIndex(
-                                                index);
                                           },
                                           child:
                                               TravelCard(snapshot.data[index]));
@@ -344,10 +330,9 @@ class _HomePageState extends State<HomePage> {
                                     itemBuilder: (context, index) {
                                       return GestureDetector(
                                           onTap: () {
+                                            context.read<ViewItemProvider>().getItem(snapshot.data[index].url ,snapshot.data[index].titulo ,snapshot.data[index].locshort, snapshot.data[index].desc, snapshot.data[index].aflu);
                                             Navigator.pushNamed(
                                                 context, "/view");
-                                            restapi.setSelectedPlaceModelIndex(
-                                                index);
                                           },
                                           child:
                                               TravelCard(snapshot.data[index]));
@@ -386,10 +371,9 @@ class _HomePageState extends State<HomePage> {
                                     itemBuilder: (context, index) {
                                       return GestureDetector(
                                           onTap: () {
+                                            context.read<ViewItemProvider>().getItem(snapshot.data[index].url ,snapshot.data[index].titulo ,snapshot.data[index].locshort, snapshot.data[index].desc, snapshot.data[index].aflu);
                                             Navigator.pushNamed(
                                                 context, "/view");
-                                            restapi.setSelectedPlaceModelIndex(
-                                                index);
                                           },
                                           child:
                                               TravelCard(snapshot.data[index]));
@@ -428,10 +412,9 @@ class _HomePageState extends State<HomePage> {
                                     itemBuilder: (context, index) {
                                       return GestureDetector(
                                           onTap: () {
+                                            context.read<ViewItemProvider>().getItem(snapshot.data[index].url ,snapshot.data[index].titulo ,snapshot.data[index].locshort, snapshot.data[index].desc, snapshot.data[index].aflu);
                                             Navigator.pushNamed(
                                                 context, "/view");
-                                            restapi.setSelectedPlaceModelIndex(
-                                                index);
                                           },
                                           child:
                                               TravelCard(snapshot.data[index]));

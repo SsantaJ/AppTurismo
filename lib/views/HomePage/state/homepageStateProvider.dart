@@ -54,14 +54,6 @@ class HomePageStateProvider extends ChangeNotifier {
     return await api.getFeaturedPlaces();
   }
 
-  Future<void> GetTopList() async {
-    await Future.delayed(const Duration(milliseconds: 500), () {});
-
-    kTopListLink.add("India");
-
-    notifyListeners();
-  }
-
   int _selectedTopListIndex = 0;
 
   void setSelectedTopListIndex(int index) {

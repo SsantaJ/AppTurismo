@@ -39,7 +39,7 @@ class _FeaturedCardState extends State<FeaturedCard> {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(18),
                 child: Image(
-                  image: AssetImage(widget.placeModel.imgUrl),
+                  image: NetworkImage(widget.placeModel.imgUrl),
                   fit: BoxFit.cover,
                 ),
               ),
