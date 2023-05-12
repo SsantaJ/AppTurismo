@@ -33,10 +33,7 @@ class _ViewDetailsState extends State<ViewDetails> {
           elevation: 5,
           child: Icon(Icons.arrow_back),
           onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => HomePage()),
-            );
+            Navigator.pop(context);
           },
         ),
       ),
