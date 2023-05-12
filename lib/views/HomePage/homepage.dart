@@ -1,7 +1,9 @@
 import 'package:ParchApp/db/firebase.dart';
 import 'package:ParchApp/utils/QrProvider.dart';
 import 'package:ParchApp/utils/ViewItemProvider.dart';
+import 'package:ParchApp/utils/logger.dart';
 import 'package:ParchApp/views/Map/map.dart';
+import 'package:ParchApp/views/ViewDetails/viewDetails.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:ParchApp/components/appbar.dart';
@@ -26,6 +28,8 @@ class _HomePageState extends State<HomePage> {
   String qrValue = "Codigo Qr"; //variable que almacena el contenido del QR
   int indexseletec;
 
+  final log = logger;
+
   String _currentView = "Popular";
   void _changeView(String viewName) {
     setState(() {
@@ -39,9 +43,8 @@ class _HomePageState extends State<HomePage> {
       setState(() {
         qrValue = cameraScanResult;
       });
-      context.read<QrProvider>().ObtenerDoc(qrValue);
-      DataBase.LeerQr(context: context);
-      Navigator.pushNamed(context, "/view");
+       context.read<QrProvider>().ObtenerDoc(qrValue, context);
+      Navigator.pushReplacementNamed(context, "/view");
     } else {}
   }
 

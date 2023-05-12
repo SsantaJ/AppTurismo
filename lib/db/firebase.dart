@@ -6,6 +6,9 @@ import 'dart:developer';
 import 'package:flutter/cupertino.dart';
 
 import '../utils/ViewItemProvider.dart';
+import '../utils/logger.dart';
+
+final log = logger;
 
 final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 final CollectionReference _museos = _firestore
@@ -66,15 +69,16 @@ class DataBase {
     return _lugaresrepresentativos.snapshots();
   }
 
-  static LeerQr({BuildContext context}) {
-    _firestore
+  static void LeerQr(String col, String colname, String doc, BuildContext context) {
+    DocumentReference docu = _firestore
         .collection("Places")
-        .doc(context.watch<QrProvider>().col)
-        .collection(context.watch<QrProvider>().colname)
-        .doc(context.watch<QrProvider>().doc)
-        .get()
-        .then((value) => {
-              context.read<ViewItemProvider>().getItem(
+        .doc(col)
+        .collection(colname)
+        .doc(doc);
+
+        docu.get().then((value) =>
+        log.i(value.exists)
+         /* context.read<ViewItemProvider>().getItem(
                   value['Imagen'][0],
                   value['Nombre'],
                   value['Ubicacion_Short'],
@@ -82,7 +86,6 @@ class DataBase {
                   value['Afluencia'],
                   value['Horario'],
                   value['Latitud'],
-                  value['Longitud'])
-            });
+                  value['Longitud']) */);
   }
 }
