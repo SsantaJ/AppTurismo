@@ -117,7 +117,9 @@ class _HomePageState extends State<HomePage> {
                                                         .data[index].locshort,
                                                     snapshot.data[index].desc,
                                                     snapshot.data[index].aflu,
-                                                    snapshot.data[index].hor);
+                                                    snapshot.data[index].hor,
+                                                    snapshot.data[index].lat,
+                                                    snapshot.data[index].lon);
                                             Navigator.pushNamed(
                                                 context, "/view");
                                           },
@@ -188,7 +190,9 @@ class _HomePageState extends State<HomePage> {
                                                         .data[index].locshort,
                                                     snapshot.data[index].desc,
                                                     snapshot.data[index].aflu,
-                                                    snapshot.data[index].hor);
+                                                    snapshot.data[index].hor,
+                                                    snapshot.data[index].lat,
+                                                    snapshot.data[index].lon);
                                             Navigator.pushNamed(
                                                 context, "/view");
                                           },
@@ -238,7 +242,9 @@ class _HomePageState extends State<HomePage> {
                                                         .data[index].locshort,
                                                     snapshot.data[index].desc,
                                                     snapshot.data[index].aflu,
-                                                    snapshot.data[index].hor);
+                                                    snapshot.data[index].hor,
+                                                    snapshot.data[index].lat,
+                                                    snapshot.data[index].lon);
                                             Navigator.pushNamed(
                                                 context, "/view");
                                           },
@@ -290,7 +296,9 @@ class _HomePageState extends State<HomePage> {
                                                         .data[index].locshort,
                                                     snapshot.data[index].desc,
                                                     snapshot.data[index].aflu,
-                                                    snapshot.data[index].hor);
+                                                    snapshot.data[index].hor,
+                                                    snapshot.data[index].lat,
+                                                    snapshot.data[index].lon);
                                             Navigator.pushNamed(
                                                 context, "/view");
                                           },
@@ -340,7 +348,9 @@ class _HomePageState extends State<HomePage> {
                                                         .data[index].locshort,
                                                     snapshot.data[index].desc,
                                                     snapshot.data[index].aflu,
-                                                    snapshot.data[index].hor);
+                                                    snapshot.data[index].hor,
+                                                    snapshot.data[index].lat,
+                                                    snapshot.data[index].lon);
                                             Navigator.pushNamed(
                                                 context, "/view");
                                           },
@@ -390,7 +400,9 @@ class _HomePageState extends State<HomePage> {
                                                         .data[index].locshort,
                                                     snapshot.data[index].desc,
                                                     snapshot.data[index].aflu,
-                                                    snapshot.data[index].hor);
+                                                    snapshot.data[index].hor,
+                                                    snapshot.data[index].lat,
+                                                    snapshot.data[index].lon);
                                             Navigator.pushNamed(
                                                 context, "/view");
                                           },
@@ -440,7 +452,9 @@ class _HomePageState extends State<HomePage> {
                                                         .data[index].locshort,
                                                     snapshot.data[index].desc,
                                                     snapshot.data[index].aflu,
-                                                    snapshot.data[index].hor);
+                                                    snapshot.data[index].hor,
+                                                    snapshot.data[index].lat,
+                                                    snapshot.data[index].lon);
                                             Navigator.pushNamed(
                                                 context, "/view");
                                           },
@@ -490,7 +504,9 @@ class _HomePageState extends State<HomePage> {
                                                         .data[index].locshort,
                                                     snapshot.data[index].desc,
                                                     snapshot.data[index].aflu,
-                                                    snapshot.data[index].hor);
+                                                    snapshot.data[index].hor,
+                                                    snapshot.data[index].lat,
+                                                    snapshot.data[index].lon);
                                             Navigator.pushNamed(
                                                 context, "/view");
                                           },
@@ -540,7 +556,9 @@ class _HomePageState extends State<HomePage> {
                                                         .data[index].locshort,
                                                     snapshot.data[index].desc,
                                                     snapshot.data[index].aflu,
-                                                    snapshot.data[index].hor);
+                                                    snapshot.data[index].hor,
+                                                    snapshot.data[index].lat,
+                                                    snapshot.data[index].lon);
                                             Navigator.pushNamed(
                                                 context, "/view");
                                           },

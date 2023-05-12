@@ -9,6 +9,13 @@ import 'package:ParchApp/views/HomePage/state/homepageStateProvider.dart';
 import 'package:ParchApp/models/placesModel.dart';
 import 'package:ParchApp/constants/colors.dart';
 
+import 'package:map_launcher/map_launcher.dart' as ml;
+import 'package:flutter/material.dart';
+import 'package:flutter_map/flutter_map.dart';
+import 'package:latlong2/latlong.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:async/async.dart';
+
 class ViewDetails extends StatefulWidget {
   //PlaceModel placeModel;
   //ViewDetails({this.placeModel});
@@ -26,6 +33,11 @@ class _ViewDetailsState extends State<ViewDetails> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     ThemeData appTheme = Theme.of(context);
+
+    //double long = double.parse(context.watch<ViewItemProvider>().lon);
+    //double lati = double.parse(context.watch<ViewItemProvider>().lat);
+    //String nom = context.watch<ViewItemProvider>().title;
+
     return Scaffold(
       floatingActionButton: Container(
         margin: EdgeInsets.only(top: 16),
@@ -155,7 +167,23 @@ class _ViewDetailsState extends State<ViewDetails> {
                                   fontSize: 18,
                                   fontFamily: 'PlayFair',
                                   fontWeight: FontWeight.bold)),
-                          onPressed: () {},
+                          onPressed: () async {
+                            /* print(
+                                "----------------------------------------------------------------------------------");
+                            print(lati);
+                            print(long);
+                            print(nom);
+                            print(
+                                "----------------------------------------------------------------------------------");
+                            if (await ml.MapLauncher.isMapAvailable(
+                                ml.MapType.google)) {
+                              await ml.MapLauncher.showMarker(
+                                mapType: ml.MapType.google,
+                                coords: ml.Coords(lati, long),
+                                title: "prueba",
+                              );
+                            } */
+                          },
                           child: Padding(
                             padding: const EdgeInsets.all(3.0),
                             child: Row(

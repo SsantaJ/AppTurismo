@@ -80,7 +80,9 @@ class DataBase {
                   value['Ubicacion_Short'],
                   value['Descripcion'],
                   value['Afluencia'],
-                  value['Horario'])
+                  value['Horario'],
+                  value['Latitud'],
+                  value['Longitud'])
             });
   }
 }
