@@ -14,12 +14,26 @@ class RESTAPI extends ChangeNotifier {
   List<PlaceModel> _bibliotecas = [];
   List<PlaceModel> _parques = [];
   List<PlaceModel> _miradores = [];
+  List<PlaceModel> _iglesias = [];
   List<PlaceModel> _allPlaces = [];
 
   List<PlaceModel> _getdatos() {
     DataBase.readMuseos().forEach((QuerySnapshot snapshot) {
       snapshot.docs.forEach((QueryDocumentSnapshot doc) {
         museos.add(
+          PlaceModel(
+            placeTitle: doc['Nombre'],
+            description: doc['Descripcion'],
+            imgUrl: doc['Imagen'][0],
+            locationShort: doc['Ubicacion_Short'],
+            afluencia: doc['Afluencia']
+          ),
+        );
+      });
+    });
+    DataBase.readIglesias().forEach((QuerySnapshot snapshot) {
+      snapshot.docs.forEach((QueryDocumentSnapshot doc) {
+        _iglesias.add(
           PlaceModel(
             placeTitle: doc['Nombre'],
             description: doc['Descripcion'],
@@ -184,6 +198,10 @@ class RESTAPI extends ChangeNotifier {
     await Future.delayed(Duration(milliseconds: 950));
     return _miradores;
   }
+  Future<List<PlaceModel>> getIglesias() async {
+    await Future.delayed(Duration(milliseconds: 950));
+    return _iglesias;
+  }
 
   Future<List<PlaceModel>> getallplaces() async {
     await Future.delayed(Duration(milliseconds: 950));
@@ -194,6 +212,7 @@ class RESTAPI extends ChangeNotifier {
       _allPlaces.addAll(_bibliotecas);
       _allPlaces.addAll(_parques);
       _allPlaces.addAll(_miradores);
+      _allPlaces.addAll(_iglesias);
     }
     return _allPlaces;
   }

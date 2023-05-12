@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:ParchApp/db/firebase.dart';
 import 'package:ParchApp/utils/QrProvider.dart';
 import 'package:ParchApp/utils/ViewItemProvider.dart';
@@ -135,15 +133,16 @@ class _HomePageState extends State<HomePage> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                "   Recommended",
+                                "   Recomendado",
                                 style: kAppTheme.textTheme.headline5,
                               ),
+                              /*
                               TextButton(
                                   onPressed: () {},
                                   child: Text(
                                     "View All",
                                     style: kAppTheme.textTheme.headline6,
-                                  ))
+                                  ))*/
                             ],
                           ),
                         ),
@@ -443,11 +442,61 @@ class _HomePageState extends State<HomePage> {
                                     });
                               }),
                         ),
+                      
                       if (homepagestate.getSelectedTopListIndex() == 6)
                         Container(
                           margin: EdgeInsets.all(16),
                           child: StreamBuilder(
                               stream: homepagestate.getmiradores().asStream(),
+                              builder: (context, snapshot) {
+                                if (!snapshot.hasData)
+                                  return Container(
+                                      alignment: Alignment.center,
+                                      width: 50,
+                                      height: 50,
+                                      child: CircularProgressIndicator());
+                                if (snapshot.connectionState ==
+                                    ConnectionState.waiting)
+                                  return Container(
+                                      alignment: Alignment.center,
+                                      width: 50,
+                                      height: 50,
+                                      child: CircularProgressIndicator());
+
+                                return GridView.builder(
+                                    itemCount: snapshot.data.length,
+                                    shrinkWrap: true,
+                                    primary: false,
+                                    gridDelegate:
+                                        SliverGridDelegateWithFixedCrossAxisCount(
+                                            mainAxisSpacing: 16,
+                                            crossAxisSpacing: 16,
+                                            crossAxisCount: 2),
+                                    itemBuilder: (context, index) {
+                                      return GestureDetector(
+                                          onTap: () {
+                                            context
+                                                .read<ViewItemProvider>()
+                                                .getItem(
+                                                    snapshot.data[index].url,
+                                                    snapshot.data[index].titulo,
+                                                    snapshot
+                                                        .data[index].locshort,
+                                                    snapshot.data[index].desc,
+                                                    snapshot.data[index].aflu);
+                                            Navigator.pushNamed(
+                                                context, "/view");
+                                          },
+                                          child:
+                                              TravelCard(snapshot.data[index]));
+                                    });
+                              }),
+                        ),
+                        if (homepagestate.getSelectedTopListIndex() == 7)
+                        Container(
+                          margin: EdgeInsets.all(16),
+                          child: StreamBuilder(
+                              stream: homepagestate.getIglesias().asStream(),
                               builder: (context, snapshot) {
                                 if (!snapshot.hasData)
                                   return Container(

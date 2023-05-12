@@ -132,7 +132,7 @@ class _ViewDetailsState extends State<ViewDetails> {
                             child: Row(
                               children: [
                                 Text(
-                                  "Ubicacion",
+                                  "Ubicación",
                                   style: appTheme.textTheme.headline3,
                                 ),
                                 Icon(Icons.location_on)

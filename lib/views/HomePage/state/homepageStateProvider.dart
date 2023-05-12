@@ -16,10 +16,11 @@ class HomePageStateProvider extends ChangeNotifier {
     'Popular',
     'Museos',
     'Centros Comerciales',
-    'Lugar representativos',
+    'Lugares representativos',
     'Bibliotecas',
     'Parques',
-    'Miradores'
+    'Miradores',
+    'Iglesias'
   ];
 
   Future<List<PlaceModel>> getallplaces() async {
@@ -48,6 +49,9 @@ class HomePageStateProvider extends ChangeNotifier {
 
   Future<List<PlaceModel>> getmiradores() async {
     return await api.getmiradores();
+  }
+  Future<List<PlaceModel>> getIglesias() async {
+    return await api.getIglesias();
   }
 
   Future<List<PlaceModel>> getFeaturedPlaces() async {
