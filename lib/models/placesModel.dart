@@ -7,6 +7,7 @@ class PlaceModel {
   String horario;
   double latitud;
   double longitud;
+  bool seguridad;
 
   String get titulo => placeTitle;
   String get locshort => locationShort;
@@ -16,6 +17,7 @@ class PlaceModel {
   String get hor => horario;
   double get lat => latitud;
   double get lon => longitud;
+  bool get seg => seguridad;
 
   PlaceModel(
       {this.placeTitle,
@@ -25,5 +27,6 @@ class PlaceModel {
       this.afluencia,
       this.horario,
       this.latitud,
-      this.longitud});
+      this.longitud,
+      this.seguridad});
 }

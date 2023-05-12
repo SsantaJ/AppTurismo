@@ -69,23 +69,20 @@ class DataBase {
     return _lugaresrepresentativos.snapshots();
   }
 
-  static void LeerQr(String col, String colname, String doc, BuildContext context) {
-    DocumentReference docu = _firestore
-        .collection("Places")
-        .doc(col)
-        .collection(colname)
-        .doc(doc);
+  static void LeerQr(
+      String col, String colname, String doc, BuildContext context) {
+    DocumentReference docu =
+        _firestore.collection("Places").doc(col).collection(colname).doc(doc);
 
-        docu.get().then((value) =>
-        log.i(value.exists)
-         /* context.read<ViewItemProvider>().getItem(
-                  value['Imagen'][0],
-                  value['Nombre'],
-                  value['Ubicacion_Short'],
-                  value['Descripcion'],
-                  value['Afluencia'],
-                  value['Horario'],
-                  value['Latitud'],
-                  value['Longitud']) */);
+    docu.get().then((value) => context.read<ViewItemProvider>().getItem(
+        value['Imagen'][0],
+        value['Nombre'],
+        value['Ubicacion_Short'],
+        value['Descripcion'],
+        value['Afluencia'],
+        value['Horario'],
+        value['Latitud'],
+        value['Longitud'],
+        value['Seguridad']));
   }
 }

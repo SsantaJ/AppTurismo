@@ -9,6 +9,7 @@ class ViewItemProvider with ChangeNotifier {
   String _hor = "";
   double _lat = 0;
   double _lon = 0;
+  bool _seg = true;
 
   String get img => _img;
   String get title => _title;
@@ -18,9 +19,18 @@ class ViewItemProvider with ChangeNotifier {
   String get hor => _hor;
   double get lat => _lat;
   double get lon => _lon;
+  bool get seg => _seg;
 
-  void getItem(String urlimg, String titulo, String lshort, String descripcion,
-      String afluencia, String horario, double latitud, double longitud) {
+  void getItem(
+      String urlimg,
+      String titulo,
+      String lshort,
+      String descripcion,
+      String afluencia,
+      String horario,
+      double latitud,
+      double longitud,
+      bool seguridad) {
     _img = urlimg;
     _title = titulo;
     _locshort = lshort;
@@ -29,6 +39,7 @@ class ViewItemProvider with ChangeNotifier {
     _hor = horario;
     _lat = latitud;
     _lon = longitud;
+    _seg = seguridad;
     WidgetsBinding.instance.addPostFrameCallback((_) {
       notifyListeners();
     });

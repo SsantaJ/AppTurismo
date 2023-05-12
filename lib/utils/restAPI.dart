@@ -22,15 +22,15 @@ class RESTAPI extends ChangeNotifier {
       snapshot.docs.forEach((QueryDocumentSnapshot doc) {
         museos.add(
           PlaceModel(
-            placeTitle: doc['Nombre'],
-            description: doc['Descripcion'],
-            imgUrl: doc['Imagen'][0],
-            locationShort: doc['Ubicacion_Short'],
-            afluencia: doc['Afluencia'],
-            horario: doc['Horario'],
-            latitud: doc['Latitud'],
-            longitud: doc['Longitud'],
-          ),
+              placeTitle: doc['Nombre'],
+              description: doc['Descripcion'],
+              imgUrl: doc['Imagen'][0],
+              locationShort: doc['Ubicacion_Short'],
+              afluencia: doc['Afluencia'],
+              horario: doc['Horario'],
+              latitud: doc['Latitud'],
+              longitud: doc['Longitud'],
+              seguridad: doc['Seguridad']),
         );
       });
     });
@@ -38,15 +38,15 @@ class RESTAPI extends ChangeNotifier {
       snapshot.docs.forEach((QueryDocumentSnapshot doc) {
         _iglesias.add(
           PlaceModel(
-            placeTitle: doc['Nombre'],
-            description: doc['Descripcion'],
-            imgUrl: doc['Imagen'][0],
-            locationShort: doc['Ubicacion_Short'],
-            afluencia: doc['Afluencia'],
-            horario: doc['Horario'],
-            latitud: doc['Latitud'],
-            longitud: doc['Longitud'],
-          ),
+              placeTitle: doc['Nombre'],
+              description: doc['Descripcion'],
+              imgUrl: doc['Imagen'][0],
+              locationShort: doc['Ubicacion_Short'],
+              afluencia: doc['Afluencia'],
+              horario: doc['Horario'],
+              latitud: doc['Latitud'],
+              longitud: doc['Longitud'],
+              seguridad: doc['Seguridad']),
         );
       });
     });
@@ -54,15 +54,15 @@ class RESTAPI extends ChangeNotifier {
       snapshot.docs.forEach((QueryDocumentSnapshot doc) {
         _centroscomerciales.add(
           PlaceModel(
-            placeTitle: doc['Nombre'],
-            description: doc['Descripcion'],
-            imgUrl: doc['Imagen'][0],
-            locationShort: doc['Ubicacion_Short'],
-            afluencia: doc['Afluencia'],
-            horario: doc['Horario'],
-            latitud: doc['Latitud'],
-            longitud: doc['Longitud'],
-          ),
+              placeTitle: doc['Nombre'],
+              description: doc['Descripcion'],
+              imgUrl: doc['Imagen'][0],
+              locationShort: doc['Ubicacion_Short'],
+              afluencia: doc['Afluencia'],
+              horario: doc['Horario'],
+              latitud: doc['Latitud'],
+              longitud: doc['Longitud'],
+              seguridad: doc['Seguridad']),
         );
       });
     });
@@ -70,15 +70,15 @@ class RESTAPI extends ChangeNotifier {
       snapshot.docs.forEach((QueryDocumentSnapshot doc) {
         _lugaresrep.add(
           PlaceModel(
-            placeTitle: doc['Nombre'],
-            description: doc['Descripcion'],
-            imgUrl: doc['Imagen'][0],
-            locationShort: doc['Ubicacion_Short'],
-            afluencia: doc['Afluencia'],
-            horario: doc['Horario'],
-            latitud: doc['Latitud'],
-            longitud: doc['Longitud'],
-          ),
+              placeTitle: doc['Nombre'],
+              description: doc['Descripcion'],
+              imgUrl: doc['Imagen'][0],
+              locationShort: doc['Ubicacion_Short'],
+              afluencia: doc['Afluencia'],
+              horario: doc['Horario'],
+              latitud: doc['Latitud'],
+              longitud: doc['Longitud'],
+              seguridad: doc['Seguridad']),
         );
       });
     });
@@ -86,15 +86,15 @@ class RESTAPI extends ChangeNotifier {
       snapshot.docs.forEach((QueryDocumentSnapshot doc) {
         _bibliotecas.add(
           PlaceModel(
-            placeTitle: doc['Nombre'],
-            description: doc['Descripcion'],
-            imgUrl: doc['Imagen'][0],
-            locationShort: doc['Ubicacion_Short'],
-            afluencia: doc['Afluencia'],
-            horario: doc['Horario'],
-            latitud: doc['Latitud'],
-            longitud: doc['Longitud'],
-          ),
+              placeTitle: doc['Nombre'],
+              description: doc['Descripcion'],
+              imgUrl: doc['Imagen'][0],
+              locationShort: doc['Ubicacion_Short'],
+              afluencia: doc['Afluencia'],
+              horario: doc['Horario'],
+              latitud: doc['Latitud'],
+              longitud: doc['Longitud'],
+              seguridad: doc['Seguridad']),
         );
       });
     });
@@ -102,15 +102,15 @@ class RESTAPI extends ChangeNotifier {
       snapshot.docs.forEach((QueryDocumentSnapshot doc) {
         _parques.add(
           PlaceModel(
-            placeTitle: doc['Nombre'],
-            description: doc['Descripcion'],
-            imgUrl: doc['Imagen'][0],
-            locationShort: doc['Ubicacion_Short'],
-            afluencia: doc['Afluencia'],
-            horario: doc['Horario'],
-            latitud: doc['Latitud'],
-            longitud: doc['Longitud'],
-          ),
+              placeTitle: doc['Nombre'],
+              description: doc['Descripcion'],
+              imgUrl: doc['Imagen'][0],
+              locationShort: doc['Ubicacion_Short'],
+              afluencia: doc['Afluencia'],
+              horario: doc['Horario'],
+              latitud: doc['Latitud'],
+              longitud: doc['Longitud'],
+              seguridad: doc['Seguridad']),
         );
       });
     });
@@ -118,15 +118,15 @@ class RESTAPI extends ChangeNotifier {
       snapshot.docs.forEach((QueryDocumentSnapshot doc) {
         _miradores.add(
           PlaceModel(
-            placeTitle: doc['Nombre'],
-            description: doc['Descripcion'],
-            imgUrl: doc['Imagen'][0],
-            locationShort: doc['Ubicacion_Short'],
-            afluencia: doc['Afluencia'],
-            horario: doc['Horario'],
-            latitud: doc['Latitud'],
-            longitud: doc['Longitud'],
-          ),
+              placeTitle: doc['Nombre'],
+              description: doc['Descripcion'],
+              imgUrl: doc['Imagen'][0],
+              locationShort: doc['Ubicacion_Short'],
+              afluencia: doc['Afluencia'],
+              horario: doc['Horario'],
+              latitud: doc['Latitud'],
+              longitud: doc['Longitud'],
+              seguridad: doc['Seguridad']),
         );
       });
     });
@@ -143,7 +143,8 @@ class RESTAPI extends ChangeNotifier {
         afluencia: "Alta",
         horario: "L-S 10am-9pm, D 11am-8pm",
         latitud: 6.19753304876593,
-        longitud: -75.5582078476821),
+        longitud: -75.5582078476821,
+        seguridad: true),
     PlaceModel(
         placeTitle: "CC Santafé",
         description:
@@ -154,7 +155,8 @@ class RESTAPI extends ChangeNotifier {
         afluencia: "Media",
         horario: "L-D 08:00 am - 9:00 pm",
         latitud: 6.196729615277477,
-        longitud: -75.57375520350446),
+        longitud: -75.57375520350446,
+        seguridad: true),
     PlaceModel(
         placeTitle: "El Castillo",
         description:
@@ -165,7 +167,8 @@ class RESTAPI extends ChangeNotifier {
         afluencia: "Media",
         horario: "L-v 9AM-6PM",
         latitud: 6.190459,
-        longitud: -75.569427),
+        longitud: -75.569427,
+        seguridad: true),
     PlaceModel(
         placeTitle: "Casa Pedro Nel Gómez",
         description:
@@ -176,7 +179,8 @@ class RESTAPI extends ChangeNotifier {
         afluencia: "Baja",
         horario: "9am-5pm L-S",
         latitud: 6.27876,
-        longitud: -75.56245),
+        longitud: -75.56245,
+        seguridad: false),
   ];
 
   bool showBottomDrawer = true;

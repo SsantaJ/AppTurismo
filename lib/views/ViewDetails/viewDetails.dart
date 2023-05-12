@@ -29,16 +29,14 @@ class _ViewDetailsState extends State<ViewDetails> {
   RESTAPI api = RESTAPI();
   int placeModelIndex = 0;
 
-
-
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     ThemeData appTheme = Theme.of(context);
 
-  double lat = context.watch<ViewItemProvider>().lat;
-  double lon = context.watch<ViewItemProvider>().lon;
-  String nom = context.watch<ViewItemProvider>().title;
+    double lat = context.watch<ViewItemProvider>().lat;
+    double lon = context.watch<ViewItemProvider>().lon;
+    String nom = context.watch<ViewItemProvider>().title;
 
     return Scaffold(
       floatingActionButton: Container(
@@ -135,6 +133,25 @@ class _ViewDetailsState extends State<ViewDetails> {
                                 overflow: TextOverflow.fade,
                                 textAlign: TextAlign.left,
                               ),
+                              if (context.watch<ViewItemProvider>().seg ==
+                                  false)
+                                Row(
+                                  children: [
+                                    Text(
+                                      'ADVERTENCIA DE SEGURIDAD',
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.red),
+                                    ),
+                                    SizedBox(width: 3),
+                                    Icon(
+                                      Icons.warning_amber_rounded,
+                                      color: Colors.red,
+                                      size: 24.0,
+                                    ),
+                                  ],
+                                ),
                             ],
                           )),
                     ),
